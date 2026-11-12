@@ -6,6 +6,15 @@
 <title>Основы современных технологий — шпаргалка</title>
 <meta name="description" content="Шпаргалка к зачёту по дисциплине «Основы современных технологий»: 34 вопросов, ответы кратко и подробно. Работает офлайн.">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111215" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Шпаргалка ОСТ">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script>
 (function(){var d=document.documentElement;d.className=d.className.replace('no-js','js');
 try{var t=localStorage.getItem('ost-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();
@@ -1824,6 +1833,11 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
 
   /* ---- кнопка скачивания видна только на сайте ---- */
   if (/^https?:$/.test(location.protocol)) document.getElementById('dl').classList.add('on');
+
+  /* ---- офлайн-режим (PWA): только когда страница открыта с сайта ---- */
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+  }
 })();
 </script>
 </body>
