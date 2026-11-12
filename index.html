@@ -1,0 +1,1830 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Основы современных технологий — шпаргалка</title>
+<meta name="description" content="Шпаргалка к зачёту по дисциплине «Основы современных технологий»: 34 вопросов, ответы кратко и подробно. Работает офлайн.">
+<meta name="color-scheme" content="light dark">
+<script>
+(function(){var d=document.documentElement;d.className=d.className.replace('no-js','js');
+try{var t=localStorage.getItem('ost-theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#f6f5f1; --surface:#ffffff; --surface-2:#f0efea; --text:#1c1c1e; --muted:#5d6068;
+  --line:#e2e0d9; --accent:#2a5bd7; --accent-weak:#e6edfd; --accent-text:#ffffff;
+  --mark:#fff1a8; --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+  --radius:14px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111215; --surface:#1a1c21; --surface-2:#22252b; --text:#e9e9ec; --muted:#a3a7b0;
+    --line:#2d3037; --accent:#8bb0ff; --accent-weak:#1f2a44; --accent-text:#0e1424;
+    --mark:#5b4d10; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111215; --surface:#1a1c21; --surface-2:#22252b; --text:#e9e9ec; --muted:#a3a7b0;
+  --line:#2d3037; --accent:#8bb0ff; --accent-weak:#1f2a44; --accent-text:#0e1424;
+  --mark:#5b4d10; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 var(--font);overflow-wrap:break-word}
+a{color:var(--accent)}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:1180px;margin:0 auto;padding:22px 16px 14px}
+.kicker{margin:0;color:var(--muted);font-size:.85rem;letter-spacing:.02em}
+h1{margin:4px 0 6px;font-size:clamp(1.45rem,4.5vw,2.1rem);line-height:1.15;letter-spacing:-.01em}
+.sub{margin:0;color:var(--muted);font-size:.95rem}
+.dl{display:none;margin-top:12px;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  background:var(--accent-weak);color:var(--text);text-decoration:none;font-size:.9rem;font-weight:600}
+.js .dl.on{display:inline-flex}
+
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{flex:1 1 220px;min-width:0;position:relative}
+.search input{width:100%;height:42px;padding:0 12px 0 38px;border:1px solid var(--line);border-radius:12px;background:var(--surface);outline:none}
+.search input:focus{border-color:var(--accent)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:3px;height:42px}
+.seg button{border:0;background:transparent;padding:0 12px;border-radius:9px;cursor:pointer;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);font-weight:600}
+.seg .lbl{display:inline-flex;align-items:center;padding:0 6px 0 8px;color:var(--muted);font-size:.85rem}
+.icon-btn{height:42px;min-width:42px;border:1px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;font-size:.9rem;color:var(--muted)}
+.icon-btn svg{width:18px;height:18px}
+.status{width:100%;margin:0;font-size:.85rem;color:var(--muted);min-height:0}
+.status:empty{display:none}
+.no-js .bar{display:none}
+
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 60px;display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media (min-width:1100px){.wrap{grid-template-columns:330px minmax(0,1fr);align-items:start}
+  .toc{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto}}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.toc summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▾";color:var(--muted);transition:transform .2s}
+.toc[open] summary::after{transform:rotate(180deg)}
+.toc ol{list-style:none;margin:0;padding:0 8px 10px}
+.toc li a{display:block;padding:6px 8px;border-radius:8px;color:var(--text);text-decoration:none;font-size:.9rem;line-height:1.35}
+.toc li a:hover{background:var(--surface-2)}
+.toc li.cur a{background:var(--accent-weak)}
+.toc .tn{color:var(--muted);font-variant-numeric:tabular-nums}
+.toc li.hide{display:none}
+
+.list{display:flex;flex-direction:column;gap:14px;min-width:0}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 18px;box-shadow:var(--shadow);min-width:0}
+.q.hide{display:none}
+.q h2{margin:0 0 12px;font-size:1.08rem;line-height:1.35;display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 6px;border-radius:10px;
+  background:var(--accent-weak);color:var(--accent);font-weight:700;text-decoration:none;font-variant-numeric:tabular-nums;font-size:.95rem}
+.qt{padding-top:5px}
+.tabs{display:inline-flex;gap:4px;padding:3px;background:var(--surface-2);border-radius:11px;margin-bottom:12px}
+.tab{border:0;background:transparent;padding:7px 14px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:.92rem}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--text);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.no-js .tabs{display:none}
+.js .q[data-mode="short"] .p-long,.js .q[data-mode="long"] .p-short{display:none}
+.no-js .p-long{margin-top:14px;border-top:1px dashed var(--line);padding-top:10px}
+
+.thesis{margin:0;padding-left:1.2em}
+.thesis li{margin:.35em 0}
+.thesis li::marker{color:var(--accent)}
+.p-long p{margin:.55em 0}
+.p-long h4{margin:1.1em 0 .4em;font-size:1rem}
+.p-long ul,.p-long ol{margin:.4em 0;padding-left:1.3em}
+.p-long li{margin:.25em 0}
+.p-long li>ul{margin-top:.2em}
+.formula{background:var(--surface-2);border-radius:10px;padding:8px 12px;font-weight:600;text-align:center}
+.tw{overflow-x:auto;margin:.8em 0;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{background:var(--surface-2);font-weight:600}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+.empty{display:none;text-align:center;color:var(--muted);padding:40px 16px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius)}
+.empty.on{display:block}
+
+.foot{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.85rem}
+.totop{position:fixed;right:16px;bottom:16px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--surface);
+  color:var(--text);box-shadow:0 4px 14px rgba(0,0,0,.15);cursor:pointer;display:none;align-items:center;justify-content:center;z-index:30}
+.totop.on{display:flex}
+.totop svg{width:20px;height:20px}
+
+@media (max-width:560px){
+  .seg button{padding:0 10px}
+  .icon-btn .t{display:none}
+  .q{padding:14px 14px 16px}
+  .q h2{font-size:1.02rem;gap:10px}
+}
+
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface-2:#f2f2f2;--text:#000;--muted:#444;--line:#bbb;--accent:#000;--accent-weak:#eee;--shadow:none}
+  html{scroll-behavior:auto}
+  body{font-size:10.5pt;line-height:1.4;background:#fff;color:#000}
+  .bar,.toc,.totop,.dl,.tabs,.empty{display:none!important}
+  .top{border:0}.top-in{padding:0 0 8px}
+  .wrap{display:block;padding:0;max-width:none}
+  .q{border:0;border-top:1.5px solid #000;border-radius:0;padding:8px 0 4px;margin:0 0 6px;box-shadow:none}
+  .q.hide{display:block}
+  .q h2{break-after:avoid;page-break-after:avoid;font-size:12pt}
+  .num{background:none;border:1.5px solid #000;color:#000;height:26px;min-width:26px}
+  .qt{padding-top:2px}
+  .js .q .p-short,.js .q .p-long{display:block!important}
+  .p-short::before,.p-long::before{display:block;font-weight:700;font-size:9pt;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 2px}
+  .p-short::before{content:"Кратко"}
+  .p-long::before{content:"Подробно"}
+  .p-short{break-inside:avoid;page-break-inside:avoid;background:#f4f4f4;padding:4px 10px 6px;border-radius:6px}
+  .p-long{margin-top:8px}
+  .tw{overflow:visible;border:0}
+  table{min-width:0;font-size:9.5pt}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  th,td{border:1px solid #999;padding:4px 6px}
+  a{color:#000;text-decoration:none}
+  mark{background:none}
+  .foot{padding:10px 0 0}
+}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="top-in">
+  <p class="kicker">Шпаргалка к зачёту</p>
+  <h1>Основы современных технологий</h1>
+  <p class="sub">34 вопроса · у каждого ответа две вкладки: «Кратко» и «Подробно» · работает без интернета</p>
+  <a class="dl" id="dl" href="index.html" download="shpargalka-osnovy-tehnologiy.html">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+   Скачать для офлайн
+  </a>
+ </div>
+</header>
+
+<div class="bar">
+ <div class="bar-in">
+  <label class="search">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+   <input id="q" type="search" placeholder="Поиск по номеру или слову" autocomplete="off" aria-label="Поиск по вопросам и ответам">
+  </label>
+  <div class="seg" role="group" aria-label="Показать все ответы">
+   <span class="lbl">Всё:</span>
+   <button type="button" data-all="short" aria-pressed="true">Кратко</button>
+   <button type="button" data-all="long" aria-pressed="false">Подробно</button>
+  </div>
+  <button type="button" class="icon-btn" id="theme" aria-label="Тема оформления">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+   <span class="t" id="theme-t">Авто</span>
+  </button>
+  <p class="status" id="status" aria-live="polite"></p>
+ </div>
+</div>
+
+<div class="wrap">
+ <details class="toc" id="toc">
+  <summary>Оглавление · 34 вопроса</summary>
+  <ol>
+<li><a href="#q1"><span class="tn">1.</span> Что понимается под термином «технология»? В чем ее роль в современном обществе?</a></li>
+<li><a href="#q2"><span class="tn">2.</span> Назовите и охарактеризуйте основные теоретические подходы к изучению технологий.</a></li>
+<li><a href="#q3"><span class="tn">3.</span> Какие особенности отличают современные технологии от традиционных?</a></li>
+<li><a href="#q4"><span class="tn">4.</span> Какие технологические изменения сопровождали первую и вторую промышленные революции?</a></li>
+<li><a href="#q5"><span class="tn">5.</span> Как цифровая революция изменила подход к производству, коммуникации и управлению?</a></li>
+<li><a href="#q6"><span class="tn">6.</span> Назовите ключевые изобретения, повлиявшие на переход к цифровой эпохе.</a></li>
+<li><a href="#q7"><span class="tn">7.</span> Как связаны инновации и конкурентоспособность на уровне компании и государства?</a></li>
+<li><a href="#q8"><span class="tn">8.</span> Какие существуют типы инноваций? Приведите примеры.</a></li>
+<li><a href="#q9"><span class="tn">9.</span> Что такое искусственный интеллект и какие основные задачи он решает?</a></li>
+<li><a href="#q10"><span class="tn">10.</span> Объясните принципы работы нейронных сетей.</a></li>
+<li><a href="#q11"><span class="tn">11.</span> В чем отличие машинного обучения от традиционного программирования?</a></li>
+<li><a href="#q12"><span class="tn">12.</span> Каковы основные направления развития робототехники?</a></li>
+<li><a href="#q13"><span class="tn">13.</span> Как 3D-печать трансформирует производственные технологии?</a></li>
+<li><a href="#q14"><span class="tn">14.</span> Какие существуют протоколы передачи данных между физическими объектами? Приведите примеры.</a></li>
+<li><a href="#q15"><span class="tn">15.</span> Как обеспечивается безопасность при передаче данных между устройствами?</a></li>
+<li><a href="#q16"><span class="tn">16.</span> Что такое Интернет вещей и как он работает?</a></li>
+<li><a href="#q17"><span class="tn">17.</span> Какие устройства входят в экосистему «умного дома»?</a></li>
+<li><a href="#q18"><span class="tn">18.</span> Какие проблемы и угрозы связаны с развитием Интернета вещей?</a></li>
+<li><a href="#q19"><span class="tn">19.</span> В чем суть теории сложных сетей и где она применяется?</a></li>
+<li><a href="#q20"><span class="tn">20.</span> Как циркадные ритмы влияют на эффективность технологических процессов?</a></li>
+<li><a href="#q21"><span class="tn">21.</span> Какие современные биотехнологии применяются в медицине и фармацевтике?</a></li>
+<li><a href="#q22"><span class="tn">22.</span> Что такое нейропротезирование и как оно функционирует?</a></li>
+<li><a href="#q23"><span class="tn">23.</span> В чем отличие биоинженерии от классической медицины?</a></li>
+<li><a href="#q24"><span class="tn">24.</span> Какие свойства должны иметь «материалы будущего»?</a></li>
+<li><a href="#q25"><span class="tn">25.</span> Какие перспективные материалы разрабатываются сегодня и где они применяются?</a></li>
+<li><a href="#q26"><span class="tn">26.</span> В чем разница между виртуальной и дополненной реальностью?</a></li>
+<li><a href="#q27"><span class="tn">27.</span> Какие технологии используются для создания VR/AR-сред?</a></li>
+<li><a href="#q28"><span class="tn">28.</span> Как VR/AR применяются в промышленности, медицине и образовании?</a></li>
+<li><a href="#q29"><span class="tn">29.</span> Какие современные технологии используются в астрономии и астрофизике?</a></li>
+<li><a href="#q30"><span class="tn">30.</span> В чем значение телескопов нового поколения для научных открытий?</a></li>
+<li><a href="#q31"><span class="tn">31.</span> Объясните основные принципы квантовой механики, применимые к квантовым компьютерам.</a></li>
+<li><a href="#q32"><span class="tn">32.</span> Как работают квантовые сенсоры и где они применяются?</a></li>
+<li><a href="#q33"><span class="tn">33.</span> Что такое квантовая телепортация информации и каковы её перспективы?</a></li>
+<li><a href="#q34"><span class="tn">34.</span> В чем состоит роль квантовых сетей в телекоммуникациях будущего?</a></li>
+  </ol>
+ </details>
+
+ <main class="list" id="list">
+
+<article class="q" id="q1" data-mode="short">
+ <h2><a class="num" href="#q1" aria-label="Ссылка на вопрос 1">1</a><span class="qt">Что понимается под термином «технология»? В чем ее роль в современном обществе?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 1">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q1-ts" aria-controls="q1-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q1-tl" aria-controls="q1-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q1-s" aria-labelledby="q1-ts">
+  <ul class="thesis">
+<li><b>Технология</b> (греч. <i>téchne</i> — мастерство + <i>logos</i> — учение) — совокупность знаний, методов и приёмов, с помощью которых из ресурсов получают нужный результат (продукт, услугу).</li>
+<li>Включает не только «железо», но и знания, организацию процесса и навыки людей.</li>
+<li>Роль в экономике: главный источник роста производительности и экономического роста (модель Солоу).</li>
+<li>Роль в обществе: меняет быт, связь, медицину, образование, рынок труда.</li>
+<li>Есть и риски: экология, вытеснение профессий, цифровое неравенство, угрозы приватности.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q1-d" aria-labelledby="q1-tl">
+<p><b>Технология</b> — от греч. <i>téchne</i> (искусство, мастерство) и <i>logos</i> (слово, учение). В научный оборот термин ввёл немецкий учёный <b>Иоганн Бекман</b> во второй половине XVIII в. (его «Введение в технологию», 1777).</p>
+<p>Современное понимание: <b>технология — это совокупность методов, процессов, приёмов, знаний и средств</b>, с помощью которых сырьё, энергия и информация превращаются в готовый продукт или услугу. В узком смысле — описание последовательности операций (технологический процесс), в широком — способ, которым общество решает практические задачи.</p>
+<p><b>Составляющие технологии:</b></p>
+<ul>
+ <li>материальная — оборудование, инструменты, материалы;</li>
+ <li>знаниевая — научные и инженерные знания, ноу-хау;</li>
+ <li>организационная — как устроен процесс, кто и в каком порядке что делает;</li>
+ <li>человеческая — навыки и квалификация людей.</li>
+</ul>
+<p><b>Роль технологий в современном обществе:</b></p>
+<ul>
+ <li><b>Экономическая.</b> Технический прогресс — ключевой фактор долгосрочного роста. Роберт Солоу показал, что значительная часть роста экономики объясняется не увеличением труда и капитала, а технологическим прогрессом (Нобелевская премия 1987 г.). Технологии повышают производительность, снижают издержки, создают новые рынки и отрасли.</li>
+ <li><b>Социальная.</b> Меняют образ жизни, способы общения (интернет, мобильная связь), доступ к знаниям, образование (онлайн-курсы), медицину (диагностика, новые лекарства), увеличивают продолжительность жизни.</li>
+ <li><b>Политическая и оборонная.</b> Технологический суверенитет и безопасность государства, конкуренция стран за лидерство в ИИ, микроэлектронике, космосе.</li>
+ <li><b>Экологическая.</b> С одной стороны, загрязнение и истощение ресурсов; с другой — «зелёные» технологии (ВИЭ, переработка, энергоэффективность).</li>
+</ul>
+<p><b>Проблемы и риски:</b> автоматизация вытесняет часть профессий, растёт цифровое неравенство, появляются киберугрозы, угрозы приватности, этические вопросы (ИИ, генная инженерия).</p>
+<p><b>Вывод:</b> технология — это не просто техника, а система знаний и способов действия; сегодня она определяет конкурентоспособность экономики и качество жизни людей.</p>
+ </div>
+</article>
+
+<article class="q" id="q2" data-mode="short">
+ <h2><a class="num" href="#q2" aria-label="Ссылка на вопрос 2">2</a><span class="qt">Назовите и охарактеризуйте основные теоретические подходы к изучению технологий.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 2">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q2-ts" aria-controls="q2-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q2-tl" aria-controls="q2-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q2-s" aria-labelledby="q2-ts">
+  <ul class="thesis">
+<li><b>Технологический детерминизм</b> — техника сама определяет развитие общества (Т. Веблен, М. Маклюэн, Ж. Эллюль).</li>
+<li><b>Социальный конструктивизм (SCOT)</b> — наоборот, общество и группы людей формируют технологию (Т. Пинч, У. Бейкер).</li>
+<li><b>Акторно-сетевая теория</b> — люди и вещи равноправные «акторы» одной сети (Б. Латур, М. Каллон).</li>
+<li><b>Системный и экономико-эволюционный</b> подходы — большие технические системы (Т. Хьюз), инновации и длинные волны (Й. Шумпетер, Н. Кондратьев).</li>
+<li><b>Философско-критический</b> — техника как способ отношения к миру и её опасности (М. Хайдеггер, Г. Маркузе).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q2-d" aria-labelledby="q2-tl">
+<p>Технологии изучают философия, социология, экономика и история. Основные подходы:</p>
+<ol>
+ <li><b>Инструментальный подход.</b> Технология — нейтральный инструмент: всё зависит от того, как человек её использует («нож может резать хлеб, а может ранить»).</li>
+ <li><b>Технологический детерминизм.</b> Развитие техники идёт по собственной логике и определяет изменения в обществе, экономике, культуре. Представители: <b>Торстейн Веблен</b> (ввёл сам термин), <b>Маршалл Маклюэн</b> («средство коммуникации и есть сообщение»), <b>Жак Эллюль</b> (автономия техники). Близки к нему теории <b>постиндустриального общества</b> Дэниела Белла и «Третьей волны» Элвина Тоффлера.</li>
+ <li><b>Социальный конструктивизм (SCOT — Social Construction of Technology).</b> <b>Тревор Пинч и Уибе Бейкер</b> (1984): технологию формируют интересы и представления социальных групп. Ключевая идея — <i>интерпретативная гибкость</i>: одно устройство разные группы понимают по-разному. Классический пример — история велосипеда: конструкция с огромным передним колесом уступила «безопасному» велосипеду из-за запросов пользователей, а не только из-за техники.</li>
+ <li><b>Акторно-сетевая теория (ANT).</b> <b>Бруно Латур, Мишель Каллон, Джон Ло</b>: общество — сеть, в которой действуют и люди, и вещи (приборы, документы, технологии). Технология — результат взаимодействия всех элементов сети.</li>
+ <li><b>Системный подход.</b> <b>Томас Хьюз</b> — теория больших технических систем (на примере электрических сетей): технология неотделима от организаций, законов, рынков, инфраструктуры.</li>
+ <li><b>Экономический (эволюционный) подход.</b> <b>Йозеф Шумпетер</b> — инновации как двигатель развития и «созидательное разрушение»; <b>Николай Кондратьев</b> — длинные волны экономической конъюнктуры (около 50 лет), связанные со сменой базовых технологий; <b>Сергей Глазьев</b> — технологические уклады; <b>Карлота Перес</b> — техноэкономические парадигмы.</li>
+ <li><b>Философско-критический подход.</b> <b>Мартин Хайдеггер</b> («Вопрос о технике», 1954) — техника как особый способ видения мира, превращающий всё в ресурс; <b>Франкфуртская школа</b> (Г. Маркузе) — техника как инструмент господства и манипуляции.</li>
+</ol>
+<p><b>Итог:</b> детерминизм говорит «техника меняет общество», конструктивизм — «общество создаёт технику», а сетевой и системный подходы — что это взаимный процесс.</p>
+ </div>
+</article>
+
+<article class="q" id="q3" data-mode="short">
+ <h2><a class="num" href="#q3" aria-label="Ссылка на вопрос 3">3</a><span class="qt">Какие особенности отличают современные технологии от традиционных?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 3">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q3-ts" aria-controls="q3-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q3-tl" aria-controls="q3-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q3-s" aria-labelledby="q3-ts">
+  <ul class="thesis">
+<li><b>Наукоёмкость</b>: опираются на фундаментальную науку и НИОКР, а не на опыт мастеров.</li>
+<li><b>Высокая скорость обновления</b>: короткий жизненный цикл, постоянные инновации.</li>
+<li><b>Цифровизация, автоматизация, ИИ</b>: работа с данными, минимум ручного труда.</li>
+<li><b>Конвергенция</b> (NBIC: нано-, био-, инфо-, когнитивные) и междисциплинарность.</li>
+<li><b>Глобальность и сетевой характер</b>, миниатюризация, ресурсоэффективность, персонализация.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q3-d" aria-labelledby="q3-tl">
+<p><b>Традиционные технологии</b> основаны на ручном или механическом труде, накопленном опыте и передаются через обучение мастерству. Меняются медленно, имеют локальный характер, требуют много ресурсов и труда.</p>
+<p><b>Современные (высокие) технологии</b> отличаются следующими чертами:</p>
+<ul>
+ <li><b>Наукоёмкость.</b> Создаются на основе научных открытий; большая доля затрат приходится на исследования и разработки (НИОКР).</li>
+ <li><b>Высокая скорость изменений.</b> Короткий жизненный цикл продукции (смартфоны обновляются каждый год), закон Мура в электронике.</li>
+ <li><b>Цифровизация и работа с данными.</b> Информация становится главным ресурсом; решения принимаются на основе анализа больших данных.</li>
+ <li><b>Автоматизация и интеллектуализация.</b> Роботы, системы ЧПУ, искусственный интеллект заменяют не только физический, но и часть умственного труда.</li>
+ <li><b>Конвергенция.</b> Слияние разных областей: <b>NBIC</b> — нанотехнологии, биотехнологии, информационные и когнитивные технологии (например, нейроинтерфейсы, биочипы).</li>
+ <li><b>Сетевой и глобальный характер.</b> Интернет, облачные сервисы, глобальные цепочки поставок; технология быстро распространяется по миру.</li>
+ <li><b>Миниатюризация.</b> Микро- и наноэлектроника, носимые устройства.</li>
+ <li><b>Ресурсо- и энергоэффективность, экологичность.</b> Меньше отходов (аддитивное производство), энергосбережение, ВИЭ.</li>
+ <li><b>Гибкость и персонализация.</b> Массовая кастомизация: продукт под конкретного клиента при серийном производстве.</li>
+ <li><b>Высокая роль человеческого капитала.</b> Нужны высококвалифицированные специалисты и постоянное обучение.</li>
+</ul>
+<div class="tw"><table>
+ <tr><th>Признак</th><th>Традиционные</th><th>Современные</th></tr>
+ <tr><td>Основа</td><td>опыт, ремесло</td><td>наука, НИОКР</td></tr>
+ <tr><td>Скорость изменений</td><td>низкая</td><td>очень высокая</td></tr>
+ <tr><td>Главный ресурс</td><td>сырьё, труд</td><td>знания, данные</td></tr>
+ <tr><td>Масштаб</td><td>локальный</td><td>глобальный, сетевой</td></tr>
+ <tr><td>Роль человека</td><td>исполнитель операций</td><td>проектировщик, контролёр</td></tr>
+</table></div>
+ </div>
+</article>
+
+<article class="q" id="q4" data-mode="short">
+ <h2><a class="num" href="#q4" aria-label="Ссылка на вопрос 4">4</a><span class="qt">Какие технологические изменения сопровождали первую и вторую промышленные революции?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 4">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q4-ts" aria-controls="q4-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q4-tl" aria-controls="q4-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q4-s" aria-labelledby="q4-ts">
+  <ul class="thesis">
+<li><b>Первая</b> (конец XVIII — сер. XIX в., Англия): паровая машина Дж. Уатта, механизация текстиля, уголь и железо, железные дороги, фабричная система.</li>
+<li>Ключевые изобретения: «Дженни» Харгривса (1764), ватерная машина Аркрайта (1769), ткацкий станок Картрайта (1785), паровоз Стефенсона.</li>
+<li><b>Вторая</b> (последняя треть XIX — начало XX в.): электричество, двигатель внутреннего сгорания, нефть, сталь, химия.</li>
+<li>Изобретения: лампа накаливания (Лодыгин, Эдисон), телефон (Белл, 1876), радио (Попов, Маркони), автомобиль (Бенц, 1886), конвейер Форда (1913).</li>
+<li>Итог: от мануфактуры к фабрике (1-я) и к массовому конвейерному производству и крупным корпорациям (2-я).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q4-d" aria-labelledby="q4-tl">
+<h4>Первая промышленная революция (≈ 1760-е — 1840-е гг.)</h4>
+<p>Началась в Великобритании. Суть — <b>переход от ручного труда к машинному</b>, от мануфактуры к фабрике.</p>
+<ul>
+ <li><b>Текстильная промышленность:</b> прялка «Дженни» Дж. Харгривса (1764), ватерная машина Р. Аркрайта (1769), мюль-машина С. Кромптона (1779), механический ткацкий станок Э. Картрайта (1785).</li>
+ <li><b>Энергетика:</b> паровая машина — Т. Ньюкомен (начало XVIII в.), принципиально усовершенствована <b>Джеймсом Уаттом</b> (патент 1769 г., универсальная машина в 1780-х). В России — паровая машина И. Ползунова (1760-е).</li>
+ <li><b>Металлургия:</b> выплавка чугуна на коксе (А. Дарби), пудлингование (Г. Корт, 1784).</li>
+ <li><b>Транспорт:</b> пароход Р. Фултона (1807), паровоз <b>Дж. Стефенсона</b> («Ракета», 1829), железная дорога Ливерпуль — Манчестер (1830). В России — паровоз Черепановых (1834).</li>
+</ul>
+<p><b>Последствия:</b> фабричная система, урбанизация, появление промышленного пролетариата и буржуазии, рост производительности, уголь как основной энергоноситель.</p>
+<h4>Вторая промышленная революция (≈ 1870-е — 1910-е гг.)</h4>
+<p>Лидеры — США и Германия. Суть — <b>электрификация, массовое производство и научная основа промышленности</b>.</p>
+<ul>
+ <li><b>Электричество:</b> динамо-машина (В. Сименс), лампа накаливания (А. Лодыгин, 1870-е; Т. Эдисон, 1879), системы переменного тока (Н. Тесла), электростанции.</li>
+ <li><b>Двигатель внутреннего сгорания:</b> Н. Отто (1876), Р. Дизель (1897); автомобиль К. Бенца (1886) — рост нефтяной промышленности.</li>
+ <li><b>Сталь:</b> бессемеровский (1856) и мартеновский (1860-е) процессы — дешёвая сталь для рельсов, мостов, небоскрёбов.</li>
+ <li><b>Химическая промышленность:</b> синтетические красители, удобрения, взрывчатка, пластмассы.</li>
+ <li><b>Связь:</b> телеграф, телефон (А. Белл, 1876), радио (А. Попов, 1895; Г. Маркони).</li>
+ <li><b>Организация производства:</b> научная организация труда Ф. Тейлора, <b>конвейер Г. Форда (1913)</b> — массовое стандартизированное производство.</li>
+</ul>
+<p><b>Последствия:</b> массовое производство и потребление, крупные корпорации и монополии, появление новых отраслей (электротехника, автомобилестроение, химия), наука становится производительной силой.</p>
+ </div>
+</article>
+
+<article class="q" id="q5" data-mode="short">
+ <h2><a class="num" href="#q5" aria-label="Ссылка на вопрос 5">5</a><span class="qt">Как цифровая революция изменила подход к производству, коммуникации и управлению?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 5">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q5-ts" aria-controls="q5-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q5-tl" aria-controls="q5-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q5-s" aria-labelledby="q5-ts">
+  <ul class="thesis">
+<li>Цифровая (третья) революция — с середины XX в.: компьютеры, микроэлектроника, интернет; с 2010-х — «Индустрия 4.0».</li>
+<li><b>Производство:</b> ЧПУ, роботы, САПР (CAD/CAM), гибкие производства, IoT, цифровые двойники, 3D-печать.</li>
+<li><b>Коммуникация:</b> мгновенная, глобальная и дешёвая — e-mail, мобильная связь, мессенджеры, соцсети.</li>
+<li><b>Управление:</b> решения на основе данных, ERP/CRM-системы, удалённая работа, гибкие (Agile) методы, платформы, э-правительство.</li>
+<li>Главное: информация и данные стали ключевым ресурсом экономики.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q5-d" aria-labelledby="q5-tl">
+<p><b>Цифровая революция</b> (третья промышленная) — переход от аналоговых и механических технологий к цифровым, начавшийся во второй половине XX в. с появлением компьютеров, микропроцессоров и интернета. Её продолжение — <b>четвёртая промышленная революция</b>, «Индустрия 4.0» (термин прозвучал в 2011 г. на Ганноверской ярмарке; популяризирован Клаусом Швабом, основателем Всемирного экономического форума, в 2016 г.).</p>
+<h4>Производство</h4>
+<ul>
+ <li>Станки с <b>ЧПУ</b> и промышленные роботы — автоматизация операций.</li>
+ <li><b>САПР</b> (CAD — проектирование, CAM — подготовка производства): изделие сначала создаётся в цифровом виде.</li>
+ <li><b>Гибкие производственные системы</b> — быстрая перенастройка под новый продукт, массовая кастомизация.</li>
+ <li><b>Промышленный интернет вещей</b>, датчики, предиктивное обслуживание (ремонт до поломки).</li>
+ <li><b>Цифровые двойники</b> — виртуальная копия станка, цеха или завода для моделирования.</li>
+ <li><b>Аддитивное производство</b> (3D-печать), «умные фабрики».</li>
+</ul>
+<h4>Коммуникация</h4>
+<ul>
+ <li>Связь стала <b>мгновенной, глобальной и почти бесплатной</b>: электронная почта, мобильная связь, мессенджеры, видеосвязь.</li>
+ <li>Социальные сети: каждый может быть производителем контента; меняется реклама и СМИ.</li>
+ <li>Новые форматы бизнеса — электронная коммерция, маркетплейсы, онлайн-сервисы.</li>
+</ul>
+<h4>Управление</h4>
+<ul>
+ <li><b>Решения на основе данных</b> (data-driven): аналитика, BI-системы, большие данные, ИИ.</li>
+ <li>Корпоративные информационные системы: <b>ERP</b> (ресурсы предприятия), <b>CRM</b> (клиенты), <b>SCM</b> (цепочки поставок), электронный документооборот.</li>
+ <li>Плоские и сетевые организационные структуры, гибкие методологии (<b>Agile, Scrum</b>), проектное управление.</li>
+ <li><b>Удалённая и гибридная работа</b>, распределённые команды.</li>
+ <li><b>Платформенная экономика</b> (агрегаторы такси, маркетплейсы) и <b>электронное государство</b> (в России — портал «Госуслуги»).</li>
+</ul>
+<p><b>Вывод:</b> главный ресурс экономики — информация и знания; скорость и гибкость становятся важнее масштаба.</p>
+ </div>
+</article>
+
+<article class="q" id="q6" data-mode="short">
+ <h2><a class="num" href="#q6" aria-label="Ссылка на вопрос 6">6</a><span class="qt">Назовите ключевые изобретения, повлиявшие на переход к цифровой эпохе.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 6">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q6-ts" aria-controls="q6-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q6-tl" aria-controls="q6-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q6-s" aria-labelledby="q6-ts">
+  <ul class="thesis">
+<li>Теоретическая база: машина Тьюринга (1936), теория информации К. Шеннона (1948), двоичная логика.</li>
+<li>Первые ЭВМ: ENIAC (1946), МЭСМ С. Лебедева (1950, СССР).</li>
+<li><b>Транзистор</b> (1947, Бардин, Браттейн, Шокли), <b>интегральная схема</b> (1958–1959, Килби, Нойс), <b>микропроцессор</b> Intel 4004 (1971).</li>
+<li><b>Сети:</b> ARPANET (1969), TCP/IP (Серф и Кан, 1970-е), <b>World Wide Web</b> (Т. Бернерс-Ли, 1989–1991).</li>
+<li>Персональный компьютер (Apple II, 1977; IBM PC, 1981), мобильный телефон (1973), смартфон (iPhone, 2007), оптоволокно.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q6-d" aria-labelledby="q6-tl">
+<div class="tw"><table>
+ <tr><th>Изобретение</th><th>Год, авторы</th><th>Значение</th></tr>
+ <tr><td>Машина Тьюринга</td><td>1936, А. Тьюринг</td><td>математическая модель любого вычисления</td></tr>
+ <tr><td>Электронные ЭВМ</td><td>ENIAC (США, 1946); МЭСМ (СССР, 1950, С. А. Лебедев)</td><td>первые электронные вычислительные машины</td></tr>
+ <tr><td>Архитектура фон Неймана</td><td>1945</td><td>программа и данные хранятся в одной памяти — основа почти всех компьютеров</td></tr>
+ <tr><td><b>Транзистор</b></td><td>1947, Дж. Бардин, У. Браттейн, У. Шокли (Bell Labs), Нобелевская премия 1956</td><td>заменил громоздкие электронные лампы, основа всей электроники</td></tr>
+ <tr><td>Теория информации</td><td>1948, К. Шеннон</td><td>понятие бита, основы цифровой передачи данных</td></tr>
+ <tr><td><b>Интегральная схема</b> (микросхема)</td><td>1958–1959, Дж. Килби, Р. Нойс</td><td>много транзисторов на одном кристалле</td></tr>
+ <tr><td>Закон Мура</td><td>1965, Г. Мур</td><td>число транзисторов на кристалле удваивается примерно каждые 2 года</td></tr>
+ <tr><td>Компьютерная мышь, графический интерфейс</td><td>1968, Д. Энгельбарт (демонстрация)</td><td>удобное взаимодействие с компьютером</td></tr>
+ <tr><td><b>ARPANET</b></td><td>1969, США</td><td>прообраз интернета</td></tr>
+ <tr><td><b>Микропроцессор</b></td><td>1971, Intel 4004</td><td>весь процессор в одной микросхеме → персональные компьютеры</td></tr>
+ <tr><td>Мобильный телефон</td><td>1973, М. Купер (Motorola) — первый звонок</td><td>мобильная связь</td></tr>
+ <tr><td>Протоколы <b>TCP/IP</b></td><td>1974, В. Серф и Р. Кан; ARPANET перешла на них в 1983</td><td>единый «язык» интернета</td></tr>
+ <tr><td>Персональный компьютер</td><td>Apple II (1977), IBM PC (1981)</td><td>компьютер в каждом доме и офисе</td></tr>
+ <tr><td><b>World Wide Web</b></td><td>1989–1991, Т. Бернерс-Ли (ЦЕРН)</td><td>гипертекст, браузеры, сайты — интернет для всех</td></tr>
+ <tr><td>Смартфон</td><td>2007, iPhone</td><td>мобильный интернет, приложения</td></tr>
+</table></div>
+<p>Также важны: <b>оптоволоконная связь</b> (передача больших объёмов данных), <b>сотовые сети</b> (от 1G до 5G), <b>флеш-память</b>, <b>облачные вычисления</b>.</p>
+ </div>
+</article>
+
+<article class="q" id="q7" data-mode="short">
+ <h2><a class="num" href="#q7" aria-label="Ссылка на вопрос 7">7</a><span class="qt">Как связаны инновации и конкурентоспособность на уровне компании и государства?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 7">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q7-ts" aria-controls="q7-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q7-tl" aria-controls="q7-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q7-s" aria-labelledby="q7-ts">
+  <ul class="thesis">
+<li>Инновация — внедрённое новшество, дающее экономический или социальный эффект.</li>
+<li><b>Компания:</b> инновации дают конкурентное преимущество — ниже издержки или уникальный продукт (М. Портер); временная «монопольная» прибыль (Й. Шумпетер).</li>
+<li>Кто не инновирует — уходит с рынка (Kodak, Nokia в смартфонах).</li>
+<li><b>Государство:</b> конкурентоспособность страны = производительность, основа — национальная инновационная система (наука + бизнес + государство + образование).</li>
+<li>Показатели: расходы на НИОКР к ВВП, патенты, экспорт высокотехнологичной продукции, Глобальный инновационный индекс.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q7-d" aria-labelledby="q7-tl">
+<p><b>Инновация</b> — новшество (продукт, технология, метод), которое <b>внедрено</b> и даёт экономический, социальный или иной эффект. <b>Конкурентоспособность</b> — способность выдерживать конкуренцию и превосходить соперников.</p>
+<h4>Уровень компании</h4>
+<ul>
+ <li>По <b>Майклу Портеру</b>, конкурентное преимущество достигается двумя путями: <b>лидерство по издержкам</b> (процессные инновации снижают затраты) и <b>дифференциация</b> (продуктовые инновации делают товар уникальным).</li>
+ <li>По <b>Йозефу Шумпетеру</b>, инноватор получает временную сверхприбыль («предпринимательскую ренту»), пока конкуренты не скопируют новинку; это и есть «созидательное разрушение» — новое вытесняет старое.</li>
+ <li>Инновации позволяют выйти на новые рынки, создать «голубой океан» — рынок без конкурентов.</li>
+ <li>Защита инноваций — патенты, ноу-хау, бренд.</li>
+ <li>Примеры: Apple (смартфон-экосистема); Kodak, изобрёвший цифровую камеру, но не перестроившийся и обанкротившийся в 2012 г.; Nokia, потерявшая лидерство на рынке телефонов после появления смартфонов.</li>
+</ul>
+<h4>Уровень государства</h4>
+<ul>
+ <li>Портер («Конкурентные преимущества стран», 1990): конкурентоспособность страны определяется <b>производительностью</b>, а она — способностью отраслей к инновациям. Модель <b>«ромба»</b>: факторные условия, спрос, родственные отрасли, стратегия и конкуренция фирм (+ роль государства и случая).</li>
+ <li><b>Национальная инновационная система</b> (К. Фримен, Б.-А. Лундвалл) — взаимодействие науки, образования, бизнеса и государства. Модель <b>«тройной спирали»</b> (Г. Ицковиц): университет — бизнес — государство.</li>
+ <li>Инструменты государства: финансирование науки, налоговые льготы на НИОКР, венчурные фонды, технопарки, особые экономические зоны, защита интеллектуальной собственности, госзаказ. В России — институты развития (Фонд «Сколково», РВК, Фонд содействия инновациям), нацпроекты технологического суверенитета.</li>
+ <li>Показатели: доля расходов на НИОКР в ВВП, число патентов, экспорт высокотехнологичной продукции, место в <b>Глобальном инновационном индексе</b> (публикует ВОИС).</li>
+ <li>Примеры стран, сделавших ставку на инновации: Южная Корея, Израиль, Финляндия, Китай.</li>
+</ul>
+<p><b>Связь двусторонняя:</b> инновации повышают конкурентоспособность, а конкуренция заставляет фирмы и страны инновировать.</p>
+ </div>
+</article>
+
+<article class="q" id="q8" data-mode="short">
+ <h2><a class="num" href="#q8" aria-label="Ссылка на вопрос 8">8</a><span class="qt">Какие существуют типы инноваций? Приведите примеры.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 8">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q8-ts" aria-controls="q8-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q8-tl" aria-controls="q8-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q8-s" aria-labelledby="q8-ts">
+  <ul class="thesis">
+<li><b>По объекту</b> (Руководство Осло, ОЭСР): продуктовые (смартфон), процессные (конвейер, роботизация), маркетинговые (подписка), организационные (удалёнка, Agile).</li>
+<li><b>По новизне:</b> радикальные/базисные (интернет, транзистор) и улучшающие/инкрементальные (новая модель телефона).</li>
+<li><b>По влиянию на рынок</b> (К. Кристенсен): поддерживающие и <b>подрывные</b> (цифровые камеры против плёнки, стриминг против DVD).</li>
+<li><b>По источнику:</b> «технологический толчок» и «рыночное притяжение»; <b>открытые и закрытые</b> инновации (Г. Чесбро).</li>
+<li>Также: технологические, социальные, экологические («зелёные»).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q8-d" aria-labelledby="q8-tl">
+<p>Шумпетер выделял 5 видов «новых комбинаций»: новый продукт, новый метод производства, новый рынок сбыта, новый источник сырья, новая организация отрасли.</p>
+<h4>Основные классификации</h4>
+<ol>
+ <li><b>По объекту (Руководство Осло, ОЭСР):</b>
+  <ul>
+   <li><b>продуктовые</b> — новый или улучшенный товар/услуга: электромобиль, смартфон, онлайн-банк;</li>
+   <li><b>процессные</b> — новый способ производства или доставки: конвейер, роботизированный склад, 3D-печать деталей;</li>
+   <li><b>маркетинговые</b> — новые способы продвижения, цены, упаковки: модель подписки (стриминговые сервисы), продажи через маркетплейсы;</li>
+   <li><b>организационные</b> — новые методы управления: бережливое производство (Toyota), Agile, удалённая работа.</li>
+  </ul>
+  <i>В редакции Руководства Осло 2018 г. их объединили в две группы: продуктовые инновации и инновации бизнес-процессов.</i></li>
+ <li><b>По степени новизны:</b>
+  <ul>
+   <li><b>радикальные (базисные, прорывные)</b> — создают новые отрасли: паровая машина, электричество, транзистор, интернет;</li>
+   <li><b>улучшающие (инкрементальные)</b> — постепенно совершенствуют существующее: новая версия смартфона, более экономичный двигатель;</li>
+   <li><b>модифицирующие</b> — небольшие изменения дизайна, комплектации.</li>
+  </ul></li>
+ <li><b>По влиянию на рынок (Клейтон Кристенсен, «Дилемма инноватора», 1997):</b>
+  <ul>
+   <li><b>поддерживающие</b> — улучшают продукт для существующих клиентов;</li>
+   <li><b>подрывные (disruptive)</b> — сначала проще и дешевле, но со временем вытесняют лидеров: цифровая фотография против плёнки, стриминг против видеопроката, смартфоны против кнопочных телефонов.</li>
+  </ul></li>
+ <li><b>По источнику:</b> «технологический толчок» (technology push — от открытия к продукту, например лазер) и «рыночное притяжение» (market pull — от потребности к продукту).</li>
+ <li><b>По модели разработки (Генри Чесбро, 2003):</b> <b>закрытые</b> (всё внутри компании) и <b>открытые</b> (сотрудничество с вузами, стартапами, пользователями; пример — Android, открытый код).</li>
+ <li><b>По сфере:</b> технологические, социальные (микрокредитование, каршеринг), экологические («зелёные» — солнечные панели, переработка), управленческие.</li>
+</ol>
+ </div>
+</article>
+
+<article class="q" id="q9" data-mode="short">
+ <h2><a class="num" href="#q9" aria-label="Ссылка на вопрос 9">9</a><span class="qt">Что такое искусственный интеллект и какие основные задачи он решает?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 9">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q9-ts" aria-controls="q9-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q9-tl" aria-controls="q9-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q9-s" aria-labelledby="q9-ts">
+  <ul class="thesis">
+<li><b>ИИ</b> — область информатики, создающая системы, которые выполняют задачи, требующие человеческого интеллекта: распознавать, понимать, обучаться, принимать решения.</li>
+<li>Термин — Джон Маккарти, Дартмутский семинар (1956); тест Тьюринга (1950).</li>
+<li><b>Слабый (узкий) ИИ</b> решает конкретную задачу — всё, что есть сейчас; <b>сильный (общий, AGI)</b> — гипотетический, как человек.</li>
+<li>Задачи: распознавание образов и речи, обработка языка (перевод, чат-боты), прогнозирование, рекомендации, генерация текстов и картинок, управление роботами и беспилотниками.</li>
+<li>Вехи: Deep Blue обыграл Каспарова (1997), AlphaGo — Ли Седоля (2016), ChatGPT (2022).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q9-d" aria-labelledby="q9-tl">
+<p><b>Искусственный интеллект (ИИ, AI)</b> — направление информатики, занимающееся созданием систем, способных выполнять задачи, которые традиционно требуют человеческого интеллекта: восприятие, обучение, рассуждение, понимание языка, принятие решений. Также ИИ — свойство таких систем.</p>
+<p><b>История:</b> 1950 — Алан Тьюринг предложил тест: машина «разумна», если в переписке её нельзя отличить от человека. 1956 — на Дартмутском семинаре Джон Маккарти ввёл термин «искусственный интеллект». Далее — экспертные системы (1970–80-е), машинное обучение, с 2010-х — глубокое обучение и нейросети, с 2020-х — генеративный ИИ и большие языковые модели (LLM).</p>
+<p><b>Виды ИИ:</b></p>
+<ul>
+ <li><b>Слабый (узкий) ИИ</b> — решает одну конкретную задачу (распознавание лиц, перевод, игра в шахматы). Все существующие системы — узкий ИИ.</li>
+ <li><b>Сильный (общий) ИИ, AGI</b> — гипотетическая система, способная решать любые интеллектуальные задачи на уровне человека.</li>
+</ul>
+<p><b>Подходы:</b> символьный (правила и логика, экспертные системы) и коннекционистский (нейронные сети, обучение на данных — машинное обучение).</p>
+<p><b>Основные задачи ИИ:</b></p>
+<ul>
+ <li><b>Компьютерное зрение</b> — распознавание лиц, объектов, медицинских снимков, номеров машин.</li>
+ <li><b>Обработка естественного языка (NLP)</b> — машинный перевод, чат-боты, голосовые помощники (Алиса, Siri), анализ текстов, генерация текстов.</li>
+ <li><b>Распознавание и синтез речи.</b></li>
+ <li><b>Классификация и прогнозирование</b> — спрос, кредитный скоринг, прогноз погоды, диагностика.</li>
+ <li><b>Рекомендательные системы</b> — подбор товаров, фильмов, музыки.</li>
+ <li><b>Обнаружение аномалий</b> — мошенничество с картами, кибератаки, неисправности оборудования.</li>
+ <li><b>Планирование и оптимизация</b> — логистика, маршруты, расписания.</li>
+ <li><b>Управление автономными системами</b> — беспилотные автомобили, роботы, дроны.</li>
+ <li><b>Генерация контента</b> — тексты, изображения, музыка, программный код.</li>
+</ul>
+<p><b>Известные вехи:</b> Deep Blue (IBM) обыграл Г. Каспарова в шахматы (1997); AlphaGo (DeepMind) победил чемпиона по го Ли Седоля (2016); ChatGPT (OpenAI, ноябрь 2022) сделал генеративный ИИ массовым.</p>
+ </div>
+</article>
+
+<article class="q" id="q10" data-mode="short">
+ <h2><a class="num" href="#q10" aria-label="Ссылка на вопрос 10">10</a><span class="qt">Объясните принципы работы нейронных сетей.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 10">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q10-ts" aria-controls="q10-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q10-tl" aria-controls="q10-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q10-s" aria-labelledby="q10-ts">
+  <ul class="thesis">
+<li>Нейросеть — математическая модель из множества связанных «искусственных нейронов», по аналогии с мозгом.</li>
+<li><b>Нейрон:</b> входы умножаются на <b>веса</b>, складываются (+ смещение) и проходят через <b>функцию активации</b> (сигмоида, ReLU).</li>
+<li>Нейроны объединены в <b>слои</b>: входной → скрытые → выходной; много скрытых слоёв = <b>глубокое обучение</b>.</li>
+<li><b>Обучение</b> = подбор весов: сравнение ответа с правильным (функция потерь) → <b>обратное распространение ошибки</b> + градиентный спуск.</li>
+<li>Виды: свёрточные (картинки), рекуррентные (последовательности), трансформеры (тексты, ChatGPT), GAN (генерация).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q10-d" aria-labelledby="q10-tl">
+<p><b>Искусственная нейронная сеть</b> — вычислительная модель, построенная по аналогии с сетью нервных клеток мозга. Она состоит из множества простых элементов — <b>искусственных нейронов</b>, — связанных между собой.</p>
+<p><b>История:</b> модель нейрона У. Маккаллока и У. Питтса (1943); перцептрон Ф. Розенблатта (1957–1958); метод обратного распространения ошибки популяризирован Д. Румельхартом, Дж. Хинтоном и Р. Уильямсом (1986); бум глубокого обучения — с 2012 г. Дж. Хопфилд и Дж. Хинтон получили Нобелевскую премию по физике 2024 г. за основополагающие работы по нейросетям.</p>
+<h4>Как работает один нейрон</h4>
+<ol>
+ <li>Получает входные сигналы x₁, x₂, … xₙ (числа).</li>
+ <li>Каждый вход умножается на свой <b>вес</b> wᵢ — показатель важности связи.</li>
+ <li>Произведения суммируются, добавляется <b>смещение</b> b: z = w₁x₁ + … + wₙxₙ + b.</li>
+ <li>Сумма проходит через <b>функцию активации</b> (сигмоида, гиперболический тангенс, ReLU), которая решает, насколько «активируется» нейрон, и вносит нелинейность.</li>
+ <li>Результат передаётся нейронам следующего слоя.</li>
+</ol>
+<h4>Архитектура</h4>
+<ul>
+ <li><b>Входной слой</b> — получает данные (например, пиксели картинки).</li>
+ <li><b>Скрытые слои</b> — выделяют признаки (от простых — линий и углов — к сложным — глазам, лицам).</li>
+ <li><b>Выходной слой</b> — выдаёт результат (например, вероятность «кошка/собака»).</li>
+</ul>
+<p>Сеть с большим числом скрытых слоёв называют <b>глубокой</b> (deep learning).</p>
+<h4>Обучение</h4>
+<ol>
+ <li>Сети подают обучающий пример и получают ответ (<b>прямое распространение</b>).</li>
+ <li><b>Функция потерь</b> измеряет, насколько ответ отличается от правильного.</li>
+ <li>Методом <b>обратного распространения ошибки</b> вычисляется, как каждый вес повлиял на ошибку.</li>
+ <li>Веса немного корректируются в сторону уменьшения ошибки — <b>градиентный спуск</b>.</li>
+ <li>Процесс повторяется на тысячах и миллионах примеров (эпохи обучения). Качество проверяют на отдельной тестовой выборке; важно избегать <b>переобучения</b> — когда сеть «зазубрила» примеры, но плохо работает на новых.</li>
+</ol>
+<h4>Основные типы сетей</h4>
+<ul>
+ <li><b>Полносвязные (многослойный перцептрон)</b> — табличные данные, простая классификация.</li>
+ <li><b>Свёрточные (CNN)</b> — изображения и видео (Я. Лекун).</li>
+ <li><b>Рекуррентные (RNN, LSTM)</b> — последовательности: речь, временные ряды.</li>
+ <li><b>Трансформеры</b> (2017, механизм внимания) — тексты, перевод, большие языковые модели (GPT).</li>
+ <li><b>Генеративно-состязательные (GAN)</b> (Я. Гудфеллоу, 2014) и <b>диффузионные модели</b> — генерация изображений.</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q11" data-mode="short">
+ <h2><a class="num" href="#q11" aria-label="Ссылка на вопрос 11">11</a><span class="qt">В чем отличие машинного обучения от традиционного программирования?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 11">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q11-ts" aria-controls="q11-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q11-tl" aria-controls="q11-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q11-s" aria-labelledby="q11-ts">
+  <ul class="thesis">
+<li><b>Традиционное программирование:</b> человек сам пишет правила. Данные + Правила → Ответ.</li>
+<li><b>Машинное обучение:</b> компьютер сам находит правила по примерам. Данные + Ответы → Правила (модель).</li>
+<li>Определение А. Сэмюэла (1959): ML — способность компьютера учиться без явного программирования.</li>
+<li>ML нужен, когда правила сложно сформулировать (распознать лицо, отличить спам); требует много данных, даёт вероятностный результат, часто «чёрный ящик».</li>
+<li>Виды ML: с учителем, без учителя, с подкреплением.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q11-d" aria-labelledby="q11-tl">
+<p><b>Традиционное программирование</b> — программист анализирует задачу и вручную записывает <b>алгоритм</b> (чёткие правила «если… то…»). Компьютер выполняет эти правила над входными данными.</p>
+<p class="formula">Данные + Программа (правила) → Результат</p>
+<p><b>Машинное обучение (ML)</b> — раздел ИИ, в котором компьютер <b>сам выявляет закономерности</b> по набору примеров с известными ответами. Результат обучения — <b>модель</b>, которую затем применяют к новым данным.</p>
+<p class="formula">Данные + Ответы (примеры) → Модель (правила)</p>
+<p>Классическое определение дал <b>Артур Сэмюэл</b> (1959), автор самообучающейся программы игры в шашки: машинное обучение — область, дающая компьютерам способность учиться без явного программирования.</p>
+<p><b>Пример — спам-фильтр.</b> Традиционно: программист пишет список запрещённых слов. Спамеры меняют слова — правила устаревают. ML: модели показывают тысячи писем с пометкой «спам / не спам», она сама находит признаки и адаптируется при дообучении.</p>
+<div class="tw"><table>
+ <tr><th>Критерий</th><th>Традиционное программирование</th><th>Машинное обучение</th></tr>
+ <tr><td>Кто создаёт правила</td><td>человек</td><td>алгоритм по данным</td></tr>
+ <tr><td>Что нужно</td><td>знание логики задачи</td><td>много качественных данных</td></tr>
+ <tr><td>Результат</td><td>точный, детерминированный</td><td>вероятностный (с некоторой ошибкой)</td></tr>
+ <tr><td>Объяснимость</td><td>понятно, почему так</td><td>часто «чёрный ящик»</td></tr>
+ <tr><td>Изменения</td><td>переписывать код</td><td>дообучить на новых данных</td></tr>
+ <tr><td>Где лучше</td><td>бухгалтерия, расчёты, чёткие процессы</td><td>распознавание, прогнозы, рекомендации</td></tr>
+</table></div>
+<p><b>Виды машинного обучения:</b></p>
+<ul>
+ <li><b>С учителем</b> — данные размечены (фото + подпись «кошка»): классификация, регрессия.</li>
+ <li><b>Без учителя</b> — разметки нет, алгоритм сам ищет структуру: кластеризация клиентов.</li>
+ <li><b>С подкреплением</b> — агент учится методом проб и ошибок, получая «награду» (игры, робототехника, AlphaGo).</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q12" data-mode="short">
+ <h2><a class="num" href="#q12" aria-label="Ссылка на вопрос 12">12</a><span class="qt">Каковы основные направления развития робототехники?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 12">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q12-ts" aria-controls="q12-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q12-tl" aria-controls="q12-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q12-s" aria-labelledby="q12-ts">
+  <ul class="thesis">
+<li>Слово «робот» — К. Чапек, пьеса «R.U.R.» (1920); первый промышленный робот Unimate (1961, General Motors).</li>
+<li><b>Промышленные</b> роботы и <b>коботы</b> (работают рядом с людьми).</li>
+<li><b>Сервисные</b> (роботы-пылесосы, доставка), <b>медицинские</b> (хирургический da Vinci, экзоскелеты, бионические протезы).</li>
+<li><b>Мобильные и автономные:</b> беспилотники, дроны, складские, космические (марсоходы), подводные; <b>гуманоидные</b>.</li>
+<li>Тренды: ИИ и машинное зрение, мягкая и роевая робототехника, микро- и нанороботы.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q12-d" aria-labelledby="q12-tl">
+<p><b>Робототехника</b> — наука и отрасль, занимающаяся созданием автоматических устройств (роботов), которые воспринимают окружающую среду с помощью датчиков, обрабатывают информацию и выполняют действия.</p>
+<p>Слово «робот» появилось в пьесе <b>Карела Чапека</b> «R.U.R.» (1920; придумал его брат писателя Йозеф). <b>Айзек Азимов</b> сформулировал «три закона робототехники» (1942). Первый промышленный робот <b>Unimate</b> заработал на заводе General Motors в 1961 г.</p>
+<h4>Основные направления</h4>
+<ul>
+ <li><b>Промышленная робототехника</b> — манипуляторы для сварки, покраски, сборки, упаковки (автомобилестроение, электроника). Компании: KUKA, FANUC, ABB.</li>
+ <li><b>Коллаборативные роботы (коботы)</b> — безопасно работают рядом с человеком без ограждения.</li>
+ <li><b>Сервисные роботы</b> — бытовые (роботы-пылесосы), роботы-курьеры (например, роботы доставки Яндекса), роботы-консультанты, уборка, общепит.</li>
+ <li><b>Медицинская робототехника</b> — хирургические системы (<b>da Vinci</b>), реабилитационные роботы, <b>экзоскелеты</b>, бионические протезы, роботы для фармацевтики и лабораторий.</li>
+ <li><b>Мобильная и автономная робототехника</b> — беспилотные автомобили, дроны (доставка, съёмка, сельское хозяйство), складские роботы (например, в логистических центрах Amazon).</li>
+ <li><b>Космическая и подводная</b> — марсоходы (Curiosity, Perseverance), манипуляторы МКС, глубоководные аппараты.</li>
+ <li><b>Гуманоидные роботы</b> — человекоподобные (Atlas от Boston Dynamics, Optimus от Tesla).</li>
+ <li><b>Военная и спасательная</b> — разминирование, работа в зонах катастроф.</li>
+ <li><b>Сельскохозяйственная</b> — роботы-доильщики, сборщики урожая, агродроны.</li>
+</ul>
+<h4>Технологические тренды</h4>
+<ul>
+ <li><b>Интеграция с ИИ</b> — машинное зрение, обучение, понимание речи; роботы становятся «умнее» и автономнее.</li>
+ <li><b>Мягкая робототехника (soft robotics)</b> — гибкие конструкции из эластичных материалов, безопасны для хрупких объектов.</li>
+ <li><b>Роевая робототехника</b> — группы простых роботов действуют согласованно (по аналогии с муравьями, пчёлами).</li>
+ <li><b>Микро- и нанороботы</b> — перспектива адресной доставки лекарств в организме.</li>
+ <li><b>Облачная робототехника</b> и «робот как услуга» (RaaS).</li>
+ <li><b>Человеко-машинное взаимодействие</b> — управление жестами, голосом, через нейроинтерфейсы.</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q13" data-mode="short">
+ <h2><a class="num" href="#q13" aria-label="Ссылка на вопрос 13">13</a><span class="qt">Как 3D-печать трансформирует производственные технологии?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 13">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q13-ts" aria-controls="q13-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q13-tl" aria-controls="q13-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q13-s" aria-labelledby="q13-ts">
+  <ul class="thesis">
+<li>3D-печать (<b>аддитивное производство</b>) — создание изделия <b>послойно</b> по цифровой 3D-модели (в отличие от вычитающего — резки, фрезеровки).</li>
+<li>Первая технология — стереолитография (SLA), Чарльз Халл, патент 1986 г.; также FDM, SLS, SLM (металлы), биопечать.</li>
+<li>Меняет производство: быстрое прототипирование, сложная геометрия, производство без оснастки и штампов, кастомизация, меньше отходов.</li>
+<li>Распределённое производство «по требованию» — меньше складов и логистики.</li>
+<li>Применение: авиация (форсунки двигателей GE LEAP), медицина (импланты, протезы, стоматология), строительство (печать домов). Минусы: медленно, дорого для крупных серий.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q13-d" aria-labelledby="q13-tl">
+<p><b>3D-печать (аддитивное производство)</b> — технология создания физического объекта путём <b>послойного нанесения материала</b> по цифровой трёхмерной модели (CAD-файл). Традиционные методы — <b>субтрактивные</b> (вычитающие: фрезеровка, токарная обработка — от заготовки отрезают лишнее) и <b>формообразующие</b> (литьё, штамповка).</p>
+<p><b>История:</b> Чарльз Халл изобрёл <b>стереолитографию</b> (патент 1986 г., компания 3D Systems). В конце 1980-х появились <b>FDM</b> (С. Крамп, Stratasys) и <b>SLS</b> (К. Декард). В 2010-х, после истечения патентов, принтеры стали массовыми.</p>
+<h4>Основные технологии</h4>
+<ul>
+ <li><b>FDM/FFF</b> — послойное наплавление расплавленной пластиковой нити (самые распространённые бытовые принтеры).</li>
+ <li><b>SLA/DLP</b> — отверждение жидкой фотополимерной смолы лазером или проектором (высокая точность, стоматология, ювелирка).</li>
+ <li><b>SLS</b> — спекание порошка (полимеры) лазером.</li>
+ <li><b>SLM/DMLS</b> — сплавление металлического порошка лазером (авиация, медицина).</li>
+ <li><b>Струйная печать</b> (PolyJet, связующее вещество), <b>строительная печать</b> бетоном, <b>биопечать</b> живыми клетками.</li>
+</ul>
+<h4>Как меняется производство</h4>
+<ul>
+ <li><b>Быстрое прототипирование</b> — опытный образец за часы и дни вместо недель.</li>
+ <li><b>Свобода формы</b> — сложные внутренние полости, ячеистые структуры, топологическая оптимизация: детали легче и прочнее. Несколько деталей можно напечатать как одну.</li>
+ <li><b>Производство без оснастки</b> — не нужны пресс-формы и штампы, поэтому выгодно мелкосерийное и единичное производство.</li>
+ <li><b>Персонализация</b> — индивидуальные импланты, протезы, слуховые аппараты, капы для выравнивания зубов.</li>
+ <li><b>Экономия материала</b> — расходуется почти только то, что входит в изделие.</li>
+ <li><b>Распределённое производство и печать по требованию</b> — файл передаётся по сети, деталь печатают рядом с потребителем; сокращаются склады запчастей и логистика.</li>
+ <li><b>Цифровая цепочка</b> — от модели к изделию без промежуточных этапов, интеграция с Индустрией 4.0.</li>
+</ul>
+<h4>Примеры</h4>
+<p>Топливные форсунки авиадвигателя GE LEAP печатаются из металла цельной деталью; печать зубных коронок и элайнеров; печать домов из бетона; запчасти на МКС; медицинские импланты из титана.</p>
+<h4>Ограничения</h4>
+<p>Низкая скорость и высокая себестоимость при крупных сериях, ограниченный размер изделий, выбор материалов, необходимость постобработки, вопросы стабильного качества и сертификации.</p>
+ </div>
+</article>
+
+<article class="q" id="q14" data-mode="short">
+ <h2><a class="num" href="#q14" aria-label="Ссылка на вопрос 14">14</a><span class="qt">Какие существуют протоколы передачи данных между физическими объектами? Приведите примеры.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 14">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q14-ts" aria-controls="q14-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q14-tl" aria-controls="q14-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q14-s" aria-labelledby="q14-ts">
+  <ul class="thesis">
+<li><b>Ближняя беспроводная связь:</b> RFID, NFC (до ~10 см, оплата телефоном), Bluetooth / BLE (наушники, фитнес-браслеты).</li>
+<li><b>Сети умного дома:</b> Wi-Fi, Zigbee и Z-Wave (ячеистые сети, мало энергии), Thread, единый стандарт Matter.</li>
+<li><b>Дальние энергоэффективные (LPWAN):</b> LoRaWAN, NB-IoT, LTE-M, Sigfox (счётчики, датчики в поле); сотовые 4G/5G.</li>
+<li><b>Прикладные протоколы IoT:</b> MQTT (издатель — брокер — подписчик), CoAP, HTTP/REST, AMQP.</li>
+<li><b>Проводные и промышленные:</b> Ethernet, CAN (автомобили), Modbus, PROFINET, OPC UA.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q14-d" aria-labelledby="q14-tl">
+<p>Передачу данных между физическими объектами (устройствами, датчиками, машинами) называют <b>M2M</b> (machine-to-machine) — основа Интернета вещей. Протоколы делятся по уровню и дальности.</p>
+<h4>1. Беспроводная связь малого радиуса</h4>
+<ul>
+ <li><b>RFID</b> — радиочастотная идентификация: метки на товарах, пропуска, транспортные карты.</li>
+ <li><b>NFC</b> — связь на расстоянии до ~10 см: бесконтактная оплата смартфоном, проездные.</li>
+ <li><b>Bluetooth и Bluetooth Low Energy (BLE)</b> — наушники, фитнес-браслеты, медицинские датчики, маячки.</li>
+ <li><b>Zigbee</b> (на основе стандарта IEEE 802.15.4) — ячеистая (mesh) сеть с низким энергопотреблением: датчики и лампы умного дома.</li>
+ <li><b>Z-Wave</b> — аналогичная ячеистая сеть для умного дома, работает на частотах ниже 1 ГГц.</li>
+ <li><b>Thread</b> — IP-ячеистая сеть с низким энергопотреблением; используется в стандарте <b>Matter</b> (2022) — едином протоколе совместимости устройств умного дома разных брендов.</li>
+ <li><b>Wi-Fi</b> (IEEE 802.11) — высокая скорость, но больше энергопотребление: камеры, колонки, бытовая техника.</li>
+</ul>
+<h4>2. Беспроводная связь большого радиуса</h4>
+<ul>
+ <li><b>LPWAN</b> (энергоэффективные сети дальнего радиуса — километры, батарея на годы): <b>LoRaWAN</b>, <b>NB-IoT</b> и <b>LTE-M</b> (на базе сотовых сетей), <b>Sigfox</b>. Примеры: умные счётчики воды и электричества, датчики в сельском хозяйстве, трекеры грузов.</li>
+ <li><b>Сотовые сети 4G/5G</b> — подключённые автомобили, видеонаблюдение; 5G обещает низкие задержки и миллионы устройств на км².</li>
+ <li><b>Спутниковая связь</b> — для удалённых объектов (суда, трубопроводы).</li>
+</ul>
+<h4>3. Проводные и промышленные протоколы</h4>
+<ul>
+ <li><b>Ethernet</b>, промышленный Ethernet (<b>PROFINET</b>, EtherCAT).</li>
+ <li><b>Modbus</b> — один из старейших промышленных протоколов (1979).</li>
+ <li><b>CAN</b> — шина для связи блоков внутри автомобиля.</li>
+ <li><b>KNX</b> — автоматизация зданий.</li>
+ <li><b>OPC UA</b> — стандарт обмена данными в промышленной автоматизации и Индустрии 4.0.</li>
+</ul>
+<h4>4. Прикладные протоколы (обмен сообщениями)</h4>
+<ul>
+ <li><b>MQTT</b> — лёгкий протокол по схеме «издатель — брокер — подписчик»: датчик публикует данные в «тему», а сервер или приложение на неё подписываются. Стандарт де-факто в IoT.</li>
+ <li><b>CoAP</b> — «облегчённый HTTP» для маломощных устройств, работает поверх UDP.</li>
+ <li><b>HTTP/REST</b>, <b>WebSocket</b> — веб-интерфейсы устройств и облаков.</li>
+ <li><b>AMQP</b>, <b>XMPP</b>, <b>DDS</b> — обмен сообщениями в корпоративных и промышленных системах.</li>
+</ul>
+<p>Сетевой уровень: <b>IPv6</b> (огромное число адресов) и <b>6LoWPAN</b> — IPv6 для маломощных сетей.</p>
+ </div>
+</article>
+
+<article class="q" id="q15" data-mode="short">
+ <h2><a class="num" href="#q15" aria-label="Ссылка на вопрос 15">15</a><span class="qt">Как обеспечивается безопасность при передаче данных между устройствами?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 15">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q15-ts" aria-controls="q15-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q15-tl" aria-controls="q15-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q15-s" aria-labelledby="q15-ts">
+  <ul class="thesis">
+<li>Цель — триада <b>CIA</b>: конфиденциальность, целостность, доступность.</li>
+<li><b>Шифрование:</b> симметричное (AES; в России ГОСТ «Кузнечик»), асимметричное (RSA, эллиптические кривые); протоколы TLS/DTLS, VPN, IPsec; Wi-Fi — WPA3.</li>
+<li><b>Аутентификация и авторизация:</b> цифровые сертификаты (PKI), ключи, двухфакторная аутентификация, уникальные пароли вместо заводских.</li>
+<li><b>Целостность:</b> хеш-функции (SHA-256), цифровая подпись, коды аутентификации сообщений (HMAC).</li>
+<li><b>Защита устройств и сети:</b> безопасная загрузка, аппаратные модули (TPM), подписанные обновления прошивки, сегментация сети, межсетевые экраны, концепция Zero Trust.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q15-d" aria-labelledby="q15-tl">
+<p>Безопасность передачи данных опирается на <b>триаду CIA</b>: <b>конфиденциальность</b> (данные не прочитает посторонний), <b>целостность</b> (данные не изменены), <b>доступность</b> (система работает, когда нужно). Дополнительно — <b>аутентичность</b> (уверенность, кто отправитель).</p>
+<h4>1. Шифрование</h4>
+<ul>
+ <li><b>Симметричное</b> — один ключ для шифрования и расшифровки: <b>AES</b>; российские стандарты ГОСТ Р 34.12-2015 («Кузнечик», «Магма»). Быстрое, но ключ нужно безопасно передать.</li>
+ <li><b>Асимметричное</b> (с открытым ключом) — пара ключей, открытый и закрытый: <b>RSA</b>, криптография на эллиптических кривых (ECC). Используется для обмена ключами и цифровой подписи.</li>
+ <li><b>Протоколы защищённого канала:</b> <b>TLS</b> (HTTPS, MQTT over TLS), <b>DTLS</b> (для UDP, CoAP), <b>IPsec</b> и <b>VPN</b>, <b>WPA2/WPA3</b> для Wi-Fi.</li>
+ <li><b>Сквозное шифрование (end-to-end)</b> — данные расшифровывает только конечный получатель (мессенджеры).</li>
+</ul>
+<h4>2. Аутентификация и управление доступом</h4>
+<ul>
+ <li>Цифровые сертификаты X.509 и инфраструктура открытых ключей (<b>PKI</b>) — устройство «предъявляет паспорт».</li>
+ <li>Уникальные пароли и ключи для каждого устройства (отказ от заводских «admin/admin»), двухфакторная аутентификация.</li>
+ <li>Принцип минимальных привилегий, ролевой доступ.</li>
+</ul>
+<h4>3. Контроль целостности</h4>
+<ul>
+ <li><b>Хеш-функции</b> (SHA-256, ГОСТ «Стрибог») — «отпечаток» данных.</li>
+ <li><b>Цифровая подпись</b> и коды <b>MAC/HMAC</b> — проверка, что сообщение не изменено и пришло от нужного отправителя.</li>
+</ul>
+<h4>4. Защита самих устройств</h4>
+<ul>
+ <li><b>Безопасная загрузка (Secure Boot)</b> — запускается только доверенная прошивка.</li>
+ <li><b>Аппаратные модули безопасности</b> (TPM, Secure Element) — хранение ключей в защищённом чипе.</li>
+ <li>Регулярные <b>обновления прошивки по воздуху (OTA)</b> с цифровой подписью.</li>
+</ul>
+<h4>5. Защита сети</h4>
+<ul>
+ <li>Сегментация (IoT-устройства в отдельной сети), межсетевые экраны, системы обнаружения и предотвращения вторжений (IDS/IPS), мониторинг аномалий.</li>
+ <li>Концепция <b>Zero Trust</b> («никому не доверяй по умолчанию») — проверка каждого запроса.</li>
+</ul>
+<h4>6. Организационно-правовые меры</h4>
+<p>Политики безопасности, обучение пользователей, стандарты (ISO/IEC 27001), законодательство — в России 152-ФЗ «О персональных данных», требования ФСТЭК и ФСБ к средствам защиты.</p>
+ </div>
+</article>
+
+<article class="q" id="q16" data-mode="short">
+ <h2><a class="num" href="#q16" aria-label="Ссылка на вопрос 16">16</a><span class="qt">Что такое Интернет вещей и как он работает?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 16">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q16-ts" aria-controls="q16-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q16-tl" aria-controls="q16-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q16-s" aria-labelledby="q16-ts">
+  <ul class="thesis">
+<li><b>Интернет вещей (IoT)</b> — сеть физических объектов со встроенными датчиками, ПО и связью, которые собирают и обмениваются данными без участия человека.</li>
+<li>Термин — Кевин Эштон, 1999 г.</li>
+<li>Архитектура: <b>устройства</b> (датчики и исполнительные механизмы) → <b>сеть/шлюз</b> → <b>платформа</b> (облако, граничные вычисления) → <b>приложения</b>.</li>
+<li>Цикл: сбор данных → передача → обработка и анализ → действие (автоматически или человеком).</li>
+<li>Сферы: умный дом и город, промышленный IoT (IIoT), сельское хозяйство, медицина, логистика, энергетика.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q16-d" aria-labelledby="q16-tl">
+<p><b>Интернет вещей (Internet of Things, IoT)</b> — концепция сети физических объектов («вещей»), оснащённых датчиками, программным обеспечением и средствами связи, которые позволяют им собирать данные, обмениваться ими и взаимодействовать друг с другом и с окружающей средой <b>без постоянного участия человека</b>.</p>
+<p>Термин предложил <b>Кевин Эштон</b> в 1999 г. (в связи с использованием RFID-меток в цепочках поставок).</p>
+<h4>Архитектура IoT (типовая четырёхуровневая модель)</h4>
+<ol>
+ <li><b>Уровень устройств (восприятия).</b> Датчики измеряют температуру, влажность, движение, освещённость, давление, координаты и т. д. Исполнительные механизмы (актуаторы) выполняют действия: включают свет, открывают клапан, поворачивают двигатель. В устройстве есть микроконтроллер и модуль связи.</li>
+ <li><b>Сетевой уровень.</b> Передача данных через Wi-Fi, Bluetooth, Zigbee, LoRaWAN, NB-IoT, 4G/5G и т. п. <b>Шлюзы</b> (хабы) собирают данные с устройств и передают их в интернет.</li>
+ <li><b>Уровень платформы (обработки).</b> Облачные сервисы хранят и анализируют данные; часть обработки может выполняться ближе к устройствам — <b>граничные (edge) и туманные (fog) вычисления</b>, что уменьшает задержки. Здесь применяются аналитика больших данных и ИИ.</li>
+ <li><b>Прикладной уровень.</b> Приложения и интерфейсы для пользователя: мобильное приложение умного дома, панель мониторинга завода, система управления городом.</li>
+</ol>
+<h4>Как это работает (пример)</h4>
+<p>Датчик температуры в комнате фиксирует 18 °C → передаёт данные по Zigbee на хаб → хаб отправляет их в облако → правило «если ниже 20 °C — включить обогрев» → команда приходит на умную розетку → обогреватель включается, а пользователь видит уведомление в приложении.</p>
+<h4>Области применения</h4>
+<ul>
+ <li><b>Умный дом</b> — освещение, климат, безопасность.</li>
+ <li><b>Умный город</b> — освещение, парковки, мониторинг транспорта и экологии.</li>
+ <li><b>Промышленный интернет вещей (IIoT)</b> — мониторинг оборудования, предиктивное обслуживание.</li>
+ <li><b>Сельское хозяйство</b> — датчики влажности почвы, точное земледелие, мониторинг скота.</li>
+ <li><b>Медицина</b> — носимые устройства, удалённый мониторинг пациентов.</li>
+ <li><b>Логистика</b> — отслеживание грузов и транспорта.</li>
+ <li><b>Энергетика</b> — умные счётчики и сети (smart grid).</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q17" data-mode="short">
+ <h2><a class="num" href="#q17" aria-label="Ссылка на вопрос 17">17</a><span class="qt">Какие устройства входят в экосистему «умного дома»?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 17">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q17-ts" aria-controls="q17-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q17-tl" aria-controls="q17-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q17-s" aria-labelledby="q17-ts">
+  <ul class="thesis">
+<li><b>Управление:</b> центр (хаб, шлюз), умные колонки с голосовым помощником (Яндекс Станция с Алисой, Amazon Echo, Google Nest), смартфон-приложение.</li>
+<li><b>Освещение и электрика:</b> умные лампы, выключатели, розетки, диммеры.</li>
+<li><b>Климат:</b> термостаты, кондиционеры, обогреватели, увлажнители, очистители воздуха, датчики температуры, влажности, CO₂.</li>
+<li><b>Безопасность:</b> камеры, видеодомофоны, умные замки, датчики движения, открытия, дыма, газа, протечки воды.</li>
+<li><b>Бытовая техника и комфорт:</b> роботы-пылесосы, умные чайники, стиральные машины, телевизоры, моторизованные шторы, счётчики ресурсов.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q17-d" aria-labelledby="q17-tl">
+<p><b>Умный дом</b> — система взаимосвязанных устройств, которая автоматизирует управление бытом, повышает комфорт, безопасность и экономию ресурсов. Устройства объединяются в <b>экосистему</b> (Яндекс, Сбер, Xiaomi, Apple HomeKit, Google Home, Amazon Alexa) и управляются через приложение, голосом или по сценариям.</p>
+<h4>1. Центр управления</h4>
+<ul>
+ <li><b>Хаб (контроллер, шлюз)</b> — связывает устройства с разными протоколами (Zigbee, Z-Wave, Bluetooth, Wi-Fi, Thread/Matter).</li>
+ <li><b>Умные колонки</b> с голосовыми помощниками: Яндекс Станция (Алиса), SberBoom (Салют), Amazon Echo (Alexa), Google Nest, Apple HomePod (Siri). Часто сами выполняют функцию хаба.</li>
+ <li><b>Мобильное приложение</b>, настенные сенсорные панели.</li>
+</ul>
+<h4>2. Освещение и электрика</h4>
+<p>Умные лампы (яркость, цвет, температура света), умные выключатели и диммеры, умные розетки (включают любой прибор по расписанию, считают энергопотребление), светодиодные ленты.</p>
+<h4>3. Климат-контроль</h4>
+<p>Умные термостаты, терморегуляторы тёплого пола и радиаторов, кондиционеры, обогреватели, увлажнители и очистители воздуха, бризеры, датчики температуры, влажности, CO₂ и качества воздуха.</p>
+<h4>4. Безопасность</h4>
+<p>IP-камеры видеонаблюдения, видеодомофоны и умные дверные звонки, умные замки (открытие по смартфону, коду, отпечатку), датчики движения, открытия дверей и окон, датчики дыма, утечки газа, протечки воды (с автоматическими кранами-перекрытиями), сирены и сигнализация.</p>
+<h4>5. Бытовая техника</h4>
+<p>Роботы-пылесосы и мойщики окон, умные стиральные и посудомоечные машины, холодильники, чайники, мультиварки, кофемашины.</p>
+<h4>6. Комфорт и мультимедиа</h4>
+<p>Моторизованные шторы и жалюзи, умные телевизоры и медиаприставки, мультирум-аудиосистемы, системы полива сада.</p>
+<h4>7. Учёт ресурсов</h4>
+<p>Умные счётчики электричества, воды и газа, системы мониторинга энергопотребления.</p>
+<p><b>Сценарии</b> — главная «фишка»: например, «Ухожу из дома» выключает свет и розетки, ставит охрану и запускает робот-пылесос; «Доброе утро» открывает шторы и включает чайник.</p>
+ </div>
+</article>
+
+<article class="q" id="q18" data-mode="short">
+ <h2><a class="num" href="#q18" aria-label="Ссылка на вопрос 18">18</a><span class="qt">Какие проблемы и угрозы связаны с развитием Интернета вещей?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 18">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q18-ts" aria-controls="q18-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q18-tl" aria-controls="q18-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q18-s" aria-labelledby="q18-ts">
+  <ul class="thesis">
+<li><b>Кибербезопасность:</b> слабые заводские пароли, нет обновлений → взломы и ботнеты (Mirai, 2016 — мощные DDoS-атаки с камер и роутеров).</li>
+<li><b>Приватность:</b> устройства собирают много личных данных (голос, видео, привычки), риск утечек и слежки.</li>
+<li><b>Физические риски:</b> взлом замков, автомобилей, медицинских приборов, промышленных систем (Stuxnet, 2010).</li>
+<li><b>Технические:</b> нет единых стандартов (несовместимость), зависимость от облака и интернета, энергопотребление, огромные объёмы данных.</li>
+<li><b>Социально-правовые:</b> кто отвечает за сбой, электронные отходы, цифровое неравенство.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q18-d" aria-labelledby="q18-tl">
+<h4>1. Угрозы безопасности</h4>
+<ul>
+ <li>Многие устройства дешёвые, с <b>заводскими паролями</b>, без шифрования и без обновлений прошивки.</li>
+ <li><b>Ботнеты:</b> в 2016 г. вредоносная программа <b>Mirai</b> заразила сотни тысяч IP-камер и роутеров и провела крупные DDoS-атаки (в том числе на DNS-провайдера Dyn, из-за чего в США были недоступны многие популярные сайты).</li>
+ <li><b>Атаки на кибер­физические системы:</b> червь <b>Stuxnet</b> (обнаружен в 2010 г.) повредил промышленное оборудование, управляемое контроллерами; в 2015 г. исследователи Ч. Миллер и К. Валасек дистанционно перехватили управление автомобилем Jeep Cherokee.</li>
+ <li>Каждое устройство — потенциальная «дверь» в домашнюю или корпоративную сеть.</li>
+</ul>
+<h4>2. Конфиденциальность (приватность)</h4>
+<ul>
+ <li>Умные колонки, камеры, фитнес-браслеты собирают голос, видео, данные о здоровье, местоположении, распорядке дня.</li>
+ <li>Риск утечек, продажи данных третьим лицам, скрытой слежки, профилирования для рекламы.</li>
+</ul>
+<h4>3. Технические проблемы</h4>
+<ul>
+ <li><b>Отсутствие единых стандартов</b> — устройства разных производителей плохо совместимы (частично решает стандарт Matter).</li>
+ <li><b>Зависимость от облака и интернета</b>: при сбое связи или закрытии сервиса производителя устройство может перестать работать.</li>
+ <li><b>Масштабируемость</b> — миллиарды устройств, огромные потоки данных, нагрузка на сети.</li>
+ <li><b>Энергопитание</b> автономных датчиков, срок службы батарей.</li>
+ <li><b>Надёжность</b> — ошибка ПО в медицинском или промышленном устройстве может стоить жизни.</li>
+</ul>
+<h4>4. Социальные, экономические и правовые проблемы</h4>
+<ul>
+ <li>Неясна <b>юридическая ответственность</b>: кто виноват при аварии — производитель, разработчик ПО, владелец?</li>
+ <li><b>Электронные отходы</b> — короткий срок жизни дешёвых устройств.</li>
+ <li><b>Цифровое неравенство</b> и зависимость от технологий.</li>
+ <li>Сокращение рабочих мест из-за автоматизации.</li>
+</ul>
+<h4>Пути решения</h4>
+<p>Принцип «безопасность по умолчанию» при проектировании, обязательные обновления, шифрование, стандарты и сертификация устройств, законодательство о защите данных, грамотность пользователей (смена паролей, отдельная сеть для IoT).</p>
+ </div>
+</article>
+
+<article class="q" id="q19" data-mode="short">
+ <h2><a class="num" href="#q19" aria-label="Ссылка на вопрос 19">19</a><span class="qt">В чем суть теории сложных сетей и где она применяется?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 19">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q19-ts" aria-controls="q19-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q19-tl" aria-controls="q19-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q19-s" aria-labelledby="q19-ts">
+  <ul class="thesis">
+<li><b>Сложные сети</b> — графы (узлы + связи) с нетривиальной структурой: интернет, соцсети, клетки, энергосети. Теория изучает их строение и поведение.</li>
+<li>Истоки: теория графов (Эйлер, 1736), случайные графы Эрдёша — Реньи (1959).</li>
+<li><b>«Мир тесен»</b> (Уоттс и Строгац, 1998): короткие пути между любыми узлами — «шесть рукопожатий» (опыт С. Милгрэма, 1967).</li>
+<li><b>Безмасштабные сети</b> (Барабаши и Альберт, 1999): немного узлов-<b>хабов</b> с огромным числом связей; устойчивы к случайным сбоям, но уязвимы к атакам на хабы.</li>
+<li>Применение: эпидемиология, соцсети и распространение информации, интернет, энергосети (каскадные отказы), биология, финансы (системный риск), транспорт, поиск (PageRank).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q19-d" aria-labelledby="q19-tl">
+<p><b>Теория сложных сетей</b> (сетевая наука) — междисциплинарная область, изучающая структуру и динамику больших систем, которые можно представить в виде <b>графа</b>: <b>узлы</b> (люди, компьютеры, клетки, станции) и <b>связи</b> между ними (дружба, кабели, химические реакции, маршруты). Сеть называют сложной, если её структура не регулярная (не решётка) и не полностью случайная.</p>
+<h4>История</h4>
+<ul>
+ <li>1736 — Леонард Эйлер решил задачу о семи кёнигсбергских мостах — начало теории графов.</li>
+ <li>1959 — П. Эрдёш и А. Реньи — модель случайных графов.</li>
+ <li>1967 — эксперимент С. Милгрэма: письма доходили до адресата в среднем примерно через шесть посредников («шесть рукопожатий»).</li>
+ <li>1998 — Д. Уоттс и С. Строгац — модель <b>«мир тесен» (small world)</b>.</li>
+ <li>1999 — А.-Л. Барабаши и Р. Альберт — <b>безмасштабные сети</b> и механизм <b>предпочтительного присоединения</b> («богатые богатеют»: новые узлы чаще соединяются с уже популярными).</li>
+</ul>
+<h4>Основные понятия</h4>
+<ul>
+ <li><b>Степень узла</b> — число его связей; <b>распределение степеней</b> (в безмасштабных сетях — степенной закон: мало хабов, много «бедных» узлов).</li>
+ <li><b>Средняя длина пути</b> — за сколько шагов в среднем можно добраться от одного узла до другого.</li>
+ <li><b>Коэффициент кластеризации</b> — насколько «друзья моих друзей — мои друзья».</li>
+ <li><b>Центральность</b> — важность узла (по числу связей, по положению «посредника»).</li>
+ <li><b>Сообщества (модульность)</b> — группы плотно связанных узлов.</li>
+ <li><b>Устойчивость:</b> безмасштабные сети выдерживают случайные отказы, но разрушаются при целенаправленной атаке на хабы; <b>каскадные отказы</b> — сбой одного узла вызывает лавину.</li>
+</ul>
+<h4>Где применяется</h4>
+<ul>
+ <li><b>Эпидемиология</b> — моделирование распространения инфекций (в том числе COVID-19), выбор, кого вакцинировать в первую очередь (хабы-«суперраспространители»).</li>
+ <li><b>Социальные сети и маркетинг</b> — поиск лидеров мнений, вирусный маркетинг, распространение слухов и фейков.</li>
+ <li><b>Интернет и WWW</b> — устойчивость сети, маршрутизация; алгоритм <b>PageRank</b> (Google) ранжирует сайты по структуре ссылок.</li>
+ <li><b>Энергетика</b> — предотвращение каскадных блэкаутов в энергосистемах.</li>
+ <li><b>Транспорт и логистика</b> — авиасети, метро, цепочки поставок.</li>
+ <li><b>Биология и медицина</b> — сети взаимодействия белков и генов, нейронные сети мозга (коннектом), поиск мишеней для лекарств.</li>
+ <li><b>Экономика и финансы</b> — межбанковские связи, оценка системного риска и «заражения» кризисом.</li>
+ <li><b>Безопасность</b> — анализ преступных и террористических сетей, кибербезопасность.</li>
+ <li><b>Рекомендательные системы</b> — связи «пользователь — товар».</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q20" data-mode="short">
+ <h2><a class="num" href="#q20" aria-label="Ссылка на вопрос 20">20</a><span class="qt">Как циркадные ритмы влияют на эффективность технологических процессов?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 20">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q20-ts" aria-controls="q20-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q20-tl" aria-controls="q20-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q20-s" aria-labelledby="q20-ts">
+  <ul class="thesis">
+<li><b>Циркадные ритмы</b> (лат. <i>circa</i> — около, <i>dies</i> — день) — внутренние биологические ритмы с периодом около 24 часов; «главные часы» — супрахиазматическое ядро мозга, гормон мелатонин, сигнал — свет.</li>
+<li>Нобелевская премия 2017 г. (Холл, Росбаш, Янг) — за открытие молекулярных механизмов этих ритмов.</li>
+<li>Работоспособность, внимание и скорость реакции человека меняются в течение суток; минимум — ночью (примерно 2–5 ч) и спад после обеда → больше ошибок и аварий в ночные смены.</li>
+<li>Учёт ритмов: графики смен (прямое чередование, ограничение ночных), сложные задачи — на пик активности, учёт хронотипов («жаворонки», «совы»), режимы труда пилотов и водителей.</li>
+<li>Технологии: «циркадное» освещение на производстве, носимые трекеры сна, хронофармакология; световые режимы в теплицах и животноводстве.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q20-d" aria-labelledby="q20-tl">
+<p><b>Циркадные (околосуточные) ритмы</b> — циклические колебания интенсивности биологических процессов с периодом около 24 часов: сон и бодрствование, температура тела, выработка гормонов (мелатонин, кортизол), скорость реакции, внимание. Главный «дирижёр» — <b>супрахиазматическое ядро</b> гипоталамуса, которое синхронизируется в первую очередь <b>светом</b> (особенно синим спектром). За открытие молекулярных механизмов циркадных ритмов Дж. Холл, М. Росбаш и М. Янг получили <b>Нобелевскую премию по физиологии и медицине 2017 г.</b></p>
+<h4>Почему это важно для технологических процессов</h4>
+<p>Во многих процессах ключевое звено — <b>человек-оператор</b> (диспетчеры, машинисты, пилоты, операторы АЭС и химических производств, врачи). Его работоспособность неодинакова в течение суток:</p>
+<ul>
+ <li>подъём работоспособности — в первой половине дня и ближе к вечеру;</li>
+ <li>небольшой спад — после обеда;</li>
+ <li><b>глубокий минимум — ночью (примерно с 2 до 5 часов)</b>: падает внимание, растёт время реакции, чаще ошибки.</li>
+</ul>
+<p>Поэтому ночные смены и сбитый ритм (сменная работа, перелёты — <b>джетлаг</b>) повышают риск брака, аварий и травм, ухудшают здоровье работников (нарушения сна, сердечно-сосудистые и обменные заболевания). Среди примеров часто приводят ночное время крупных техногенных аварий, где свою роль сыграли ошибки персонала и усталость.</p>
+<h4>Как учитывают циркадные ритмы</h4>
+<ul>
+ <li><b>Планирование графиков смен</b>: ротация «по часовой стрелке» (утро → день → ночь), ограничение числа ночных смен подряд, достаточный отдых между сменами.</li>
+ <li><b>Распределение задач</b>: самые ответственные и сложные операции — на часы пиковой работоспособности; дополнительный контроль и автоматизация в ночные часы.</li>
+ <li><b>Учёт хронотипов</b> работников («жаворонки», «совы», «голуби»).</li>
+ <li><b>Нормирование режимов труда и отдыха</b> пилотов, машинистов, водителей; системы контроля усталости (камеры, отслеживающие моргание водителя).</li>
+ <li><b>Освещение, ориентированное на человека</b> (human-centric lighting): яркий холодный свет днём для бодрости, тёплый вечером.</li>
+ <li><b>Носимые устройства и ИИ</b> для мониторинга сна и утомления.</li>
+</ul>
+<h4>Другие применения</h4>
+<ul>
+ <li><b>Хронофармакология и хронотерапия</b> — приём лекарств в оптимальное время суток.</li>
+ <li><b>Сельское хозяйство</b> — световые режимы в теплицах, птицеводстве и животноводстве повышают продуктивность.</li>
+ <li><b>Образование и IT</b> — расписание занятий, «тёмный режим» и ночные фильтры экрана.</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q21" data-mode="short">
+ <h2><a class="num" href="#q21" aria-label="Ссылка на вопрос 21">21</a><span class="qt">Какие современные биотехнологии применяются в медицине и фармацевтике?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 21">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q21-ts" aria-controls="q21-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q21-tl" aria-controls="q21-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q21-s" aria-labelledby="q21-ts">
+  <ul class="thesis">
+<li><b>Генная инженерия:</b> рекомбинантные белки — инсулин (первый генно-инженерный препарат, 1982), гормон роста, интерфероны; моноклональные антитела (онкология, аутоиммунные болезни).</li>
+<li><b>Вакцины нового типа:</b> рекомбинантные, векторные («Спутник V»), мРНК-вакцины (Нобелевская премия 2023 — Карико и Вайсман).</li>
+<li><b>Редактирование генома CRISPR-Cas9</b> (Шарпантье и Дудна, Нобель 2020), <b>генная и клеточная терапия</b> (CAR-T против рака крови).</li>
+<li><b>Регенеративная медицина:</b> стволовые клетки, индуцированные плюрипотентные клетки (Яманака, Нобель 2012), тканевая инженерия, 3D-биопечать.</li>
+<li><b>Диагностика и персонализация:</b> ПЦР, секвенирование генома, биочипы и биосенсоры, фармакогеномика.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q21-d" aria-labelledby="q21-tl">
+<p><b>Биотехнология</b> — использование живых организмов, клеток и биологических процессов для получения продуктов и решения практических задач. В медицине и фармацевтике это направление называют «красной» биотехнологией.</p>
+<h4>1. Генная инженерия и рекомбинантные препараты</h4>
+<ul>
+ <li>Гены человека встраивают в бактерии или дрожжи, и те производят нужный белок. Первый такой препарат — <b>человеческий инсулин</b> (разработан компанией Genentech в 1978 г., поступил в продажу в 1982 г.). Также: гормон роста, интерфероны, факторы свёртывания крови, эритропоэтин.</li>
+ <li><b>Моноклональные антитела</b> (технология гибридом — Г. Кёлер и Ц. Мильштейн, 1975, Нобелевская премия 1984) — препараты против рака, ревматоидного артрита, рассеянного склероза.</li>
+ <li><b>Биоаналоги (биосимиляры)</b> — более доступные аналоги биопрепаратов.</li>
+</ul>
+<h4>2. Вакцины нового поколения</h4>
+<ul>
+ <li><b>Рекомбинантные</b> (вакцина от гепатита B).</li>
+ <li><b>Векторные</b> — безвредный вирус-переносчик доставляет ген антигена (российская «Спутник V» на аденовирусных векторах).</li>
+ <li><b>мРНК-вакцины</b> (Pfizer–BioNTech, Moderna, 2020) — клетки по инструкции мРНК сами синтезируют антиген. К. Карико и Д. Вайсман — Нобелевская премия 2023 г.</li>
+</ul>
+<h4>3. Редактирование генома и генная терапия</h4>
+<ul>
+ <li><b>CRISPR-Cas9</b> — «генетические ножницы» для точной правки ДНК (Э. Шарпантье и Дж. Дудна, 2012; Нобелевская премия по химии 2020). В 2023 г. в Великобритании и США одобрен первый препарат на основе CRISPR — <b>Casgevy</b> для лечения серповидноклеточной анемии и бета-талассемии.</li>
+ <li><b>Генная терапия</b> — доставка исправной копии гена (например, препарат Zolgensma при спинальной мышечной атрофии).</li>
+ <li><b>Клеточная терапия CAR-T</b> — собственные Т-лимфоциты пациента генетически «перенастраивают» на уничтожение раковых клеток (лейкозы, лимфомы).</li>
+</ul>
+<h4>4. Регенеративная медицина</h4>
+<ul>
+ <li><b>Стволовые клетки</b> — трансплантация костного мозга, восстановление тканей.</li>
+ <li><b>Индуцированные плюрипотентные стволовые клетки</b> — взрослые клетки «перепрограммируют» в стволовые (С. Яманака, 2006; Нобелевская премия 2012).</li>
+ <li><b>Тканевая инженерия и 3D-биопечать</b> — выращивание кожи, хряща, сосудов, в перспективе — органов.</li>
+</ul>
+<h4>5. Диагностика и персонализированная медицина</h4>
+<ul>
+ <li><b>ПЦР</b> (К. Муллис, 1983; Нобелевская премия 1993) — выявление инфекций и мутаций.</li>
+ <li><b>Секвенирование генома</b> (проект «Геном человека» завершён в 2003 г.) — генетические тесты, поиск наследственных болезней.</li>
+ <li><b>Биочипы, биосенсоры</b> (глюкометры, тест-полоски), жидкостная биопсия.</li>
+ <li><b>Фармакогеномика</b> — подбор лекарства и дозы с учётом генов пациента.</li>
+</ul>
+<h4>6. Биотехнологии в фармпроизводстве</h4>
+<p>Биореакторы для культивирования клеток, ферментные технологии, синтетическая биология (микроорганизмы-«фабрики» для синтеза сложных молекул), ИИ для поиска новых лекарств.</p>
+ </div>
+</article>
+
+<article class="q" id="q22" data-mode="short">
+ <h2><a class="num" href="#q22" aria-label="Ссылка на вопрос 22">22</a><span class="qt">Что такое нейропротезирование и как оно функционирует?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 22">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q22-ts" aria-controls="q22-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q22-tl" aria-controls="q22-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q22-s" aria-labelledby="q22-ts">
+  <ul class="thesis">
+<li><b>Нейропротезирование</b> — создание устройств, которые восстанавливают или заменяют утраченные функции нервной системы, напрямую взаимодействуя с нервами или мозгом.</li>
+<li>Принцип: <b>регистрация сигналов</b> (электроды: ЭЭГ, ЭКоГ, внутримозговые) → усиление и оцифровка → <b>декодирование</b> алгоритмами (часто ИИ) → команда устройству → <b>обратная связь</b> (стимуляция).</li>
+<li>Сенсорные: <b>кохлеарный имплант</b> (слух) — самый массовый, ретинальные импланты (зрение).</li>
+<li>Моторные: бионические протезы рук и ног (в России — «Моторика»), <b>интерфейсы мозг — компьютер</b> (BrainGate, Neuralink — первый пациент в 2024 г.); терапевтические: глубокая стимуляция мозга при болезни Паркинсона.</li>
+<li>Проблемы: биосовместимость, рубцевание тканей вокруг электродов, питание, стоимость, этика.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q22-d" aria-labelledby="q22-tl">
+<p><b>Нейропротезирование</b> — область на стыке нейробиологии, медицины и инженерии, которая создаёт <b>нейропротезы</b> — устройства, восстанавливающие или замещающие утраченные функции нервной системы (слух, зрение, движение, речь), взаимодействуя с ней через электрические сигналы.</p>
+<h4>Как функционирует</h4>
+<p>Нервная система передаёт информацию электрическими импульсами. Нейропротез «подключается» к этому каналу:</p>
+<ol>
+ <li><b>Регистрация сигналов.</b> Электроды улавливают активность нервов, мышц или мозга:
+  <ul>
+   <li><b>неинвазивно</b> — ЭЭГ с поверхности головы, электромиография (ЭМГ) с кожи;</li>
+   <li><b>частично инвазивно</b> — электрокортикография (ЭКоГ) на поверхности мозга;</li>
+   <li><b>инвазивно</b> — микроэлектроды внутри коры мозга (самый точный сигнал).</li>
+  </ul></li>
+ <li><b>Обработка.</b> Сигнал усиливается, фильтруется, оцифровывается.</li>
+ <li><b>Декодирование.</b> Алгоритмы (часто машинное обучение) переводят паттерны активности в намерение: «сжать кисть», «сдвинуть курсор вправо».</li>
+ <li><b>Исполнение.</b> Команда передаётся на протез, экзоскелет, компьютер или стимулятор мышц.</li>
+ <li><b>Обратная связь.</b> Датчики протеза передают информацию обратно — через стимуляцию нервов или мозга человек может «ощущать» прикосновение.</li>
+</ol>
+<p>Сенсорные протезы работают наоборот: внешний датчик (микрофон, камера) преобразует сигнал в электрическую стимуляцию нерва.</p>
+<h4>Виды и примеры</h4>
+<ul>
+ <li><b>Кохлеарный имплант</b> — самый распространённый нейропротез: микрофон и процессор преобразуют звук в импульсы, стимулирующие слуховой нерв; позволяет слышать глухим людям.</li>
+ <li><b>Ретинальные импланты</b> (например, Argus II) — частичное восстановление зрения при дегенерации сетчатки.</li>
+ <li><b>Бионические протезы</b> конечностей с миоэлектрическим управлением — считывают сигналы мышц культи (российская компания «Моторика»).</li>
+ <li><b>Интерфейсы «мозг — компьютер» (ИМК, BCI)</b>: проект BrainGate (парализованные пациенты управляли курсором и роботизированной рукой силой мысли), Neuralink (первый имплант человеку — 2024 г.), Synchron.</li>
+ <li><b>Глубокая стимуляция мозга (DBS)</b> — электроды в определённых структурах мозга уменьшают тремор при болезни Паркинсона.</li>
+ <li><b>Стимуляторы спинного мозга</b> — помогают при хронической боли и в экспериментах восстанавливали ходьбу при травмах спинного мозга; стимуляция блуждающего нерва при эпилепсии.</li>
+</ul>
+<h4>Проблемы</h4>
+<p>Биосовместимость и реакция тканей (рубцевание снижает качество сигнала), долговечность и энергопитание имплантов, риски операции, высокая стоимость, конфиденциальность «нейроданных» и этические вопросы (улучшение человека, доступ к мыслям).</p>
+ </div>
+</article>
+
+<article class="q" id="q23" data-mode="short">
+ <h2><a class="num" href="#q23" aria-label="Ссылка на вопрос 23">23</a><span class="qt">В чем отличие биоинженерии от классической медицины?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 23">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q23-ts" aria-controls="q23-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q23-tl" aria-controls="q23-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q23-s" aria-labelledby="q23-ts">
+  <ul class="thesis">
+<li><b>Классическая медицина</b> — диагностика и лечение болезней лекарствами, хирургией, терапией; опирается на клинический опыт и стандартные протоколы.</li>
+<li><b>Биоинженерия</b> — применение инженерных методов к живым системам: создаёт ткани, органы, устройства, модифицирует клетки и гены.</li>
+<li>Классическая медицина чаще <b>лечит или компенсирует</b> болезнь; биоинженерия стремится <b>восстановить, заменить или улучшить</b> функцию (регенерация).</li>
+<li>Биоинженерия междисциплинарна (биология + инженерия + физика + химия + IT) и ориентирована на персонализацию.</li>
+<li>Примеры: искусственные органы и ткани, биопечать, генная терапия, нейропротезы, биосенсоры.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q23-d" aria-labelledby="q23-tl">
+<p><b>Классическая (традиционная) медицина</b> — область науки и практики, задача которой — сохранение здоровья, профилактика, диагностика и лечение заболеваний. Основные инструменты: <b>фармакотерапия</b> (лекарства), <b>хирургия</b>, физиотерапия, режим и реабилитация. Решения опираются на клинический опыт, доказательные исследования и стандартизированные протоколы лечения.</p>
+<p><b>Биоинженерия</b> (биомедицинская инженерия) — междисциплинарная область, которая <b>применяет принципы и методы инженерии к биологическим системам</b>: проектирует и создаёт ткани, органы, медицинские устройства, модифицирует клетки и гены.</p>
+<div class="tw"><table>
+ <tr><th>Критерий</th><th>Классическая медицина</th><th>Биоинженерия</th></tr>
+ <tr><td>Подход</td><td>лечит болезнь, снимает симптомы, компенсирует нарушенную функцию</td><td>восстанавливает, заменяет или создаёт заново ткани и функции</td></tr>
+ <tr><td>Методы</td><td>лекарства, хирургия, терапия</td><td>генная инженерия, тканевая инженерия, биоматериалы, биопечать, электроника, моделирование</td></tr>
+ <tr><td>Объект</td><td>пациент и его болезнь</td><td>клетки, гены, ткани, взаимодействие организма и устройства</td></tr>
+ <tr><td>Знания</td><td>медицинские (анатомия, физиология, фармакология)</td><td>биология + инженерия + физика + химия + информатика</td></tr>
+ <tr><td>Специалисты</td><td>врачи</td><td>инженеры, биологи, программисты совместно с врачами</td></tr>
+ <tr><td>Лечение</td><td>чаще стандартизированное</td><td>часто персонализированное (под конкретного пациента)</td></tr>
+ <tr><td>Пример: орган не работает</td><td>пересадка донорского органа, пожизненный приём лекарств</td><td>выращивание ткани из клеток пациента, искусственный орган, генная коррекция</td></tr>
+</table></div>
+<h4>Примеры достижений биоинженерии</h4>
+<ul>
+ <li>Выращенные из собственных клеток пациентов мочевые пузыри (группа Э. Аталы, первые пересадки — конец 1990-х гг.).</li>
+ <li>Искусственная кожа для ожоговых больных, тканеинженерные сосуды и хрящи.</li>
+ <li>3D-биопечать тканей, «орган-на-чипе» для тестирования лекарств.</li>
+ <li>Искусственное сердце, кохлеарные импланты, бионические протезы, нейроинтерфейсы.</li>
+ <li>Генная и клеточная терапия (CRISPR, CAR-T).</li>
+</ul>
+<p><b>Важно:</b> это не противопоставление, а дополнение. Биоинженерия даёт медицине новые инструменты, а врачи применяют их на практике.</p>
+ </div>
+</article>
+
+<article class="q" id="q24" data-mode="short">
+ <h2><a class="num" href="#q24" aria-label="Ссылка на вопрос 24">24</a><span class="qt">Какие свойства должны иметь «материалы будущего»?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 24">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q24-ts" aria-controls="q24-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q24-tl" aria-controls="q24-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q24-s" aria-labelledby="q24-ts">
+  <ul class="thesis">
+<li><b>Высокая прочность при малом весе</b>, долговечность, износо-, термо- и коррозионная стойкость.</li>
+<li><b>«Умность» (адаптивность)</b>: реагируют на температуру, свет, давление, поле — память формы, самовосстановление, изменение цвета или проводимости.</li>
+<li><b>Многофункциональность</b>: например, несущий элемент, который одновременно проводит ток или служит датчиком.</li>
+<li><b>Экологичность</b>: биоразлагаемость или переработка, низкий углеродный след, нетоксичность, энергоэффективное производство.</li>
+<li>Особые свойства под задачу (сверхпроводимость, гибкость, прозрачность, биосовместимость) + <b>доступная цена и возможность массового производства</b>.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q24-d" aria-labelledby="q24-tl">
+<p><b>«Материалы будущего»</b> (перспективные, передовые, функциональные материалы) — материалы с новыми или заранее заданными свойствами, которые позволяют создавать технику, недоступную на основе традиционных материалов (стали, обычного бетона, стекла, классических пластмасс).</p>
+<h4>Ключевые требования</h4>
+<ol>
+ <li><b>Механические свойства.</b> Высокая <b>удельная прочность</b> (прочность при малой массе), жёсткость, вязкость разрушения, износостойкость. Важно для авиации, космоса, транспорта: меньше масса — меньше расход топлива.</li>
+ <li><b>Устойчивость к экстремальным условиям.</b> Жаропрочность, морозостойкость, коррозионная, химическая и радиационная стойкость (двигатели, атомная энергетика, космос, Арктика).</li>
+ <li><b>«Интеллектуальность» (smart materials).</b> Способность менять свойства в ответ на внешние воздействия:
+  <ul>
+   <li><b>память формы</b> — возвращают форму при нагреве (сплав никель–титан, нитинол);</li>
+   <li><b>самовосстановление</b> — «залечивают» трещины (полимеры с микрокапсулами, бетон с бактериями);</li>
+   <li><b>пьезоэлектрический эффект</b> — электричество при деформации;</li>
+   <li><b>термо- и фотохромизм</b> — изменение цвета при нагреве или на свету (хамелеон-очки, «умные» окна).</li>
+  </ul></li>
+ <li><b>Многофункциональность.</b> Один материал выполняет несколько функций: конструкционную, энергетическую (аккумулирует энергию), сенсорную (сам контролирует своё состояние).</li>
+ <li><b>Особые физические свойства:</b> высокая электро- и теплопроводность или, наоборот, теплоизоляция, сверхпроводимость, гибкость и растяжимость (гибкая электроника), прозрачность, управляемые оптические свойства (метаматериалы).</li>
+ <li><b>Экологичность и устойчивость:</b> возобновляемое сырьё, биоразлагаемость или возможность многократной переработки (циркулярная экономика), низкий углеродный след при производстве, отсутствие токсичности.</li>
+ <li><b>Биосовместимость</b> — для имплантов и медицинских изделий: материал не отторгается организмом.</li>
+ <li><b>Энергоэффективность</b> — помогают экономить энергию (теплоизоляция) или вырабатывать её (солнечные элементы).</li>
+ <li><b>Технологичность и экономичность:</b> возможность массового производства, обработки (в том числе 3D-печатью), приемлемая цена.</li>
+</ol>
+ </div>
+</article>
+
+<article class="q" id="q25" data-mode="short">
+ <h2><a class="num" href="#q25" aria-label="Ссылка на вопрос 25">25</a><span class="qt">Какие перспективные материалы разрабатываются сегодня и где они применяются?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 25">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q25-ts" aria-controls="q25-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q25-tl" aria-controls="q25-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q25-s" aria-labelledby="q25-ts">
+  <ul class="thesis">
+<li><b>Графен</b> — слой углерода толщиной в один атом (Гейм и Новосёлов, 2004, Нобель 2010): электроника, сенсоры, аккумуляторы, композиты. <b>Углеродные нанотрубки</b>.</li>
+<li><b>Композиты</b> (углепластики) — авиация (около половины массы конструкции Boeing 787), автомобили, спорт.</li>
+<li><b>«Умные» материалы:</b> сплавы с памятью формы (нитинол — стенты), самовосстанавливающиеся полимеры и бетон.</li>
+<li><b>Метаматериалы</b> (необычные оптические и акустические свойства), <b>аэрогели</b> (сверхлёгкая теплоизоляция), <b>перовскиты</b> (солнечные элементы), <b>квантовые точки</b> (дисплеи, Нобель 2023, в т. ч. А. Екимов).</li>
+<li><b>Биоматериалы и биопластики</b> (PLA, импланты), высокоэнтропийные сплавы, ВТСП-сверхпроводники (кабели, магниты).</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q25-d" aria-labelledby="q25-tl">
+<div class="tw"><table>
+ <tr><th>Материал</th><th>Что это</th><th>Где применяется</th></tr>
+ <tr><td><b>Графен</b></td><td>двумерный слой атомов углерода. Получен А. Геймом и К. Новосёловым в 2004 г. (Нобелевская премия по физике 2010). Очень прочный, тонкий, отлично проводит ток и тепло</td><td>гибкая электроника, сенсоры, аккумуляторы и суперконденсаторы, фильтры для воды, добавка в композиты и покрытия</td></tr>
+ <tr><td><b>Углеродные нанотрубки</b></td><td>«свёрнутый в трубку» графен; известны с 1991 г. (С. Иидзима)</td><td>армирование композитов, проводящие добавки в аккумуляторах, электроника</td></tr>
+ <tr><td><b>Композиционные материалы</b> (углепластики, стеклопластики)</td><td>прочные волокна в полимерной матрице: лёгкие и прочные</td><td>самолёты (около половины массы конструкции Boeing 787; крыло российского МС-21), автомобили, ветрогенераторы, спортинвентарь</td></tr>
+ <tr><td><b>Сплавы с памятью формы</b> (нитинол)</td><td>восстанавливают форму при нагреве</td><td>сосудистые стенты, ортодонтические дуги, приводы и датчики, авиация</td></tr>
+ <tr><td><b>Самовосстанавливающиеся материалы</b></td><td>полимеры с микрокапсулами «клея», бетон с бактериями, выделяющими известняк</td><td>покрытия, строительство, электроника</td></tr>
+ <tr><td><b>Метаматериалы</b></td><td>искусственные структуры с необычными свойствами (например, отрицательный показатель преломления)</td><td>антенны и радары, «маскировка» объектов, акустические экраны, линзы сверхвысокого разрешения</td></tr>
+ <tr><td><b>Аэрогели</b></td><td>одни из самых лёгких твёрдых материалов, на 90+ % состоят из воздуха</td><td>теплоизоляция (космос, трубопроводы, одежда), сорбенты</td></tr>
+ <tr><td><b>Перовскиты</b></td><td>класс кристаллических материалов</td><td>дешёвые и эффективные солнечные элементы, светодиоды</td></tr>
+ <tr><td><b>Квантовые точки</b></td><td>нанокристаллы полупроводников, цвет свечения зависит от размера. Нобелевская премия по химии 2023 — М. Бавенди, Л. Брюс, А. Екимов</td><td>QLED-дисплеи, медицинская визуализация, солнечные элементы</td></tr>
+ <tr><td><b>Биоматериалы</b></td><td>биосовместимые материалы: титан, гидроксиапатит, биоразлагаемые полимеры</td><td>импланты, костные и зубные протезы, рассасывающиеся швы, каркасы для выращивания тканей</td></tr>
+ <tr><td><b>Биопластики</b> (PLA и др.)</td><td>пластики из растительного сырья, часть из них биоразлагаема</td><td>упаковка, одноразовая посуда, 3D-печать</td></tr>
+ <tr><td><b>Высокоэнтропийные сплавы</b></td><td>сплавы из 5 и более элементов в близких долях</td><td>жаропрочные детали, атомная энергетика</td></tr>
+ <tr><td><b>Высокотемпературные сверхпроводники</b></td><td>проводят ток без сопротивления при охлаждении жидким азотом</td><td>силовые кабели, мощные магниты (МРТ, термоядерные установки)</td></tr>
+ <tr><td><b>Гибкая электроника и «умный» текстиль</b></td><td>проводящие полимеры, растяжимые схемы</td><td>носимые датчики здоровья, гибкие экраны, одежда с подогревом</td></tr>
+</table></div>
+ </div>
+</article>
+
+<article class="q" id="q26" data-mode="short">
+ <h2><a class="num" href="#q26" aria-label="Ссылка на вопрос 26">26</a><span class="qt">В чем разница между виртуальной и дополненной реальностью?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 26">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q26-ts" aria-controls="q26-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q26-tl" aria-controls="q26-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q26-s" aria-labelledby="q26-ts">
+  <ul class="thesis">
+<li><b>VR (виртуальная реальность)</b> — полностью искусственный 3D-мир, заменяющий реальный; полное погружение через шлем (Meta Quest, PlayStation VR).</li>
+<li><b>AR (дополненная реальность)</b> — цифровые объекты накладываются поверх реального мира через камеру смартфона или очки (Pokémon GO, примерка мебели, маски в соцсетях).</li>
+<li>В VR человек изолирован от окружения, в AR — продолжает видеть реальность.</li>
+<li><b>MR (смешанная реальность)</b> — виртуальные объекты взаимодействуют с реальными (Microsoft HoloLens); всё вместе — <b>XR</b>.</li>
+<li>Континуум «реальность — виртуальность» (П. Милграм, 1994); первый шлем — И. Сазерленд, 1968.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q26-d" aria-labelledby="q26-tl">
+<p><b>Виртуальная реальность (VR, virtual reality)</b> — созданный компьютером трёхмерный мир, который полностью <b>заменяет</b> пользователю реальное окружение. Человек надевает шлем (HMD — head-mounted display), видит только виртуальную сцену, может в ней перемещаться и взаимодействовать с объектами с помощью контроллеров.</p>
+<p><b>Дополненная реальность (AR, augmented reality)</b> — технология, которая <b>дополняет</b> реальный мир цифровыми объектами (изображениями, текстом, 3D-моделями) в реальном времени. Реальный мир остаётся основой.</p>
+<div class="tw"><table>
+ <tr><th>Критерий</th><th>VR</th><th>AR</th></tr>
+ <tr><td>Отношение к реальности</td><td>заменяет её</td><td>дополняет её</td></tr>
+ <tr><td>Погружение</td><td>полное</td><td>частичное</td></tr>
+ <tr><td>Видит ли пользователь окружение</td><td>нет</td><td>да</td></tr>
+ <tr><td>Устройства</td><td>VR-шлемы (Meta Quest, HTC Vive, PlayStation VR)</td><td>смартфоны, планшеты, AR-очки, проекционные дисплеи (HUD) в автомобилях</td></tr>
+ <tr><td>Мобильность</td><td>обычно в ограниченном пространстве</td><td>можно использовать на ходу</td></tr>
+ <tr><td>Примеры</td><td>VR-игры, авиа- и хирургические тренажёры, виртуальные экскурсии</td><td>Pokémon GO (2016), примерка мебели и одежды, маски в соцсетях, навигация с подсказками поверх дороги</td></tr>
+</table></div>
+<h4>Смежные понятия</h4>
+<ul>
+ <li><b>Смешанная реальность (MR)</b> — виртуальные объекты «встроены» в реальный мир и взаимодействуют с ним (виртуальный мяч отскакивает от настоящего стола). Пример — Microsoft HoloLens; Apple Vision Pro (2024) совмещает VR и MR.</li>
+ <li><b>Расширенная реальность (XR)</b> — общее название для VR, AR и MR.</li>
+ <li><b>Континуум «реальность — виртуальность»</b> (П. Милграм и Ф. Кисино, 1994): шкала от полностью реального мира через AR и MR к полностью виртуальному.</li>
+</ul>
+<h4>Немного истории</h4>
+<p>1968 — Айвен Сазерленд создал первый шлем виртуальной реальности («Дамоклов меч»). В 1980-е Джарон Ланье популяризировал термин «виртуальная реальность». Термин «дополненная реальность» появился около 1990 г. (Т. Коделл, Boeing). С 2010-х — массовые потребительские шлемы и AR в смартфонах.</p>
+ </div>
+</article>
+
+<article class="q" id="q27" data-mode="short">
+ <h2><a class="num" href="#q27" aria-label="Ссылка на вопрос 27">27</a><span class="qt">Какие технологии используются для создания VR/AR-сред?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 27">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q27-ts" aria-controls="q27-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q27-tl" aria-controls="q27-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q27-s" aria-labelledby="q27-ts">
+  <ul class="thesis">
+<li><b>Устройства отображения:</b> шлемы с дисплеями (OLED/LCD) и линзами, AR-очки с прозрачной оптикой (волноводы), экраны смартфонов.</li>
+<li><b>Трекинг:</b> датчики IMU (акселерометр, гироскоп), камеры (inside-out) или внешние станции (outside-in), отслеживание рук, глаз; 3DoF/6DoF.</li>
+<li><b>Компьютерное зрение для AR:</b> SLAM (построение карты и определение положения), распознавание поверхностей и маркеров, датчики глубины (LiDAR, ToF).</li>
+<li><b>ПО:</b> игровые движки Unity и Unreal Engine, SDK ARKit (Apple), ARCore (Google), стандарты OpenXR и WebXR; 3D-моделирование (Blender), фотограмметрия, 360°-видео.</li>
+<li><b>Взаимодействие и звук:</b> контроллеры, тактильная обратная связь (haptics), пространственный звук; мощные GPU, облачный рендеринг, 5G, ИИ.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q27-d" aria-labelledby="q27-tl">
+<h4>1. Аппаратные технологии</h4>
+<ul>
+ <li><b>Дисплеи и оптика.</b> VR-шлем — два дисплея высокой чёткости (OLED, LCD, micro-OLED) и линзы (френелевские, «панкейк»), создающие стереоскопическое (объёмное) изображение. AR-очки — прозрачные экраны: <b>волноводы</b>, полупрозрачные зеркала, проекторы. Для AR на смартфоне — обычный экран и камера.</li>
+ <li><b>Трекинг (отслеживание положения):</b>
+  <ul>
+   <li><b>IMU</b> — инерциальные датчики: акселерометр, гироскоп, магнитометр;</li>
+   <li><b>3DoF</b> (только повороты головы) и <b>6DoF</b> (повороты + перемещения в пространстве);</li>
+   <li><b>inside-out</b> — камеры на самом шлеме (Meta Quest) и <b>outside-in</b> — внешние базовые станции или камеры (HTC Vive с SteamVR);</li>
+   <li><b>отслеживание рук</b> и <b>взгляда (eye tracking)</b> — позволяет делать фовеальный рендеринг: чёткость только там, куда смотрит человек.</li>
+  </ul></li>
+ <li><b>Датчики глубины</b> — LiDAR, ToF-камеры, структурированный свет: «понимают» геометрию комнаты.</li>
+ <li><b>Средства взаимодействия</b> — контроллеры, перчатки и костюмы с тактильной обратной связью (<b>haptics</b>), всенаправленные беговые дорожки.</li>
+ <li><b>Вычислительная мощность</b> — графические процессоры (GPU), мобильные чипсеты в автономных шлемах.</li>
+</ul>
+<h4>2. Программные технологии</h4>
+<ul>
+ <li><b>Игровые движки</b> — <b>Unity</b> и <b>Unreal Engine</b>: основные среды разработки VR/AR-приложений.</li>
+ <li><b>SDK и платформы</b> — <b>ARKit</b> (Apple), <b>ARCore</b> (Google), Vuforia, Meta XR SDK; открытые стандарты <b>OpenXR</b> (консорциум Khronos) и <b>WebXR</b> (VR/AR прямо в браузере).</li>
+ <li><b>Компьютерное зрение</b> — <b>SLAM</b> (Simultaneous Localization and Mapping — одновременное построение карты окружения и определение своего положения в ней), распознавание плоскостей, маркеров, лиц, объектов.</li>
+ <li><b>3D-контент</b> — моделирование (Blender, 3ds Max, Maya), <b>фотограмметрия</b> и 3D-сканирование реальных объектов, съёмка <b>360°-видео</b>, цифровые двойники.</li>
+ <li><b>Рендеринг в реальном времени</b> и <b>пространственный (3D) звук</b>.</li>
+</ul>
+<h4>3. Инфраструктура и новые технологии</h4>
+<ul>
+ <li><b>Облачный и граничный рендеринг</b>, сети <b>5G</b> — тяжёлые вычисления на сервере, низкая задержка.</li>
+ <li><b>ИИ</b> — распознавание сцен и жестов, генерация 3D-контента, виртуальные персонажи.</li>
+</ul>
+<p><b>Важное требование:</b> высокая частота кадров (обычно не менее 72–90 кадров/с) и минимальная задержка между движением головы и обновлением картинки, иначе у пользователя возникает укачивание («киберболезнь»).</p>
+ </div>
+</article>
+
+<article class="q" id="q28" data-mode="short">
+ <h2><a class="num" href="#q28" aria-label="Ссылка на вопрос 28">28</a><span class="qt">Как VR/AR применяются в промышленности, медицине и образовании?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 28">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q28-ts" aria-controls="q28-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q28-tl" aria-controls="q28-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q28-s" aria-labelledby="q28-ts">
+  <ul class="thesis">
+<li><b>Промышленность:</b> проектирование и виртуальные прототипы, цифровые двойники, обучение на тренажёрах без риска, AR-инструкции по сборке и ремонту, удалённая помощь эксперта через AR-очки.</li>
+<li><b>Медицина:</b> обучение хирургов на симуляторах, планирование операций по 3D-моделям, AR-навигация во время операции, реабилитация после инсульта, лечение фобий и ПТСР, отвлечение от боли.</li>
+<li><b>Образование:</b> виртуальные лаборатории и экскурсии, наглядные 3D-модели (молекулы, анатомия, механизмы), AR-учебники, тренажёры пилотов и водителей.</li>
+<li>Плюсы: безопасность, наглядность, экономия на материалах и поездках, вовлечённость.</li>
+<li>Минусы: стоимость оборудования, укачивание, нехватка качественного контента.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q28-d" aria-labelledby="q28-tl">
+<h4>Промышленность</h4>
+<ul>
+ <li><b>Проектирование и прототипирование.</b> Инженеры «заходят» внутрь виртуальной модели автомобиля, самолёта или здания, проверяют эргономику и компоновку до изготовления образца — экономия времени и денег.</li>
+ <li><b>Цифровые двойники</b> — визуализация работы цеха или оборудования в реальном времени, планирование размещения линий.</li>
+ <li><b>Обучение персонала на VR-тренажёрах</b> — отработка опасных операций (работа на высоте, с электричеством, ликвидация аварий) без риска для жизни и оборудования. Применяется в нефтегазовой отрасли, энергетике, металлургии, на железной дороге.</li>
+ <li><b>AR-инструкции</b> по сборке, обслуживанию и ремонту — подсказки и схемы прямо поверх оборудования; меньше ошибок и времени на поиск документации.</li>
+ <li><b>Удалённая экспертная поддержка</b> — специалист из другого города видит то же, что работник в AR-очках, и рисует подсказки в его поле зрения.</li>
+ <li><b>Контроль качества</b> — наложение CAD-модели на готовое изделие для поиска отклонений.</li>
+ <li><b>Маркетинг и продажи</b> — виртуальные шоурумы, AR-примерка товаров.</li>
+</ul>
+<h4>Медицина</h4>
+<ul>
+ <li><b>Обучение</b> — изучение анатомии в 3D, хирургические симуляторы: студенты отрабатывают операции без риска для пациента.</li>
+ <li><b>Планирование операций</b> — 3D-модели органов пациента по данным КТ и МРТ.</li>
+ <li><b>AR во время операции</b> — наложение снимков на тело пациента, «рентгеновское зрение» для хирурга, точная навигация.</li>
+ <li><b>Реабилитация</b> — игровые VR-упражнения после инсульта и травм повышают мотивацию пациентов.</li>
+ <li><b>Психотерапия</b> — экспозиционная терапия фобий (страх высоты, полётов), посттравматического стрессового расстройства, тревожности.</li>
+ <li><b>Обезболивание и отвлечение</b> — VR снижает восприятие боли и стресс при болезненных процедурах (перевязки при ожогах, процедуры у детей).</li>
+ <li><b>Обучение пациентов</b> — понятное объяснение диагноза и предстоящей операции.</li>
+</ul>
+<h4>Образование</h4>
+<ul>
+ <li><b>Наглядность</b> — объёмные модели молекул, клеток, планет, исторических сооружений, механизмов, которые можно рассмотреть со всех сторон.</li>
+ <li><b>Виртуальные лаборатории</b> — опыты по химии и физике без дорогих реактивов и опасности.</li>
+ <li><b>Виртуальные экскурсии</b> — музеи, исторические места, космос, глубины океана, не выходя из класса.</li>
+ <li><b>AR-учебники и карточки</b> — наведи камеру на страницу, и рисунок «оживает».</li>
+ <li><b>Профессиональные тренажёры</b> — авиасимуляторы для пилотов, автотренажёры, обучение рабочим профессиям.</li>
+ <li><b>Изучение языков</b> и soft skills — моделирование ситуаций общения, публичных выступлений.</li>
+ <li>Повышение вовлечённости и запоминания за счёт <b>погружения и геймификации</b>.</li>
+</ul>
+<h4>Ограничения</h4>
+<p>Высокая стоимость оборудования и разработки контента, укачивание, нагрузка на глаза, необходимость подготовки преподавателей и специалистов.</p>
+ </div>
+</article>
+
+<article class="q" id="q29" data-mode="short">
+ <h2><a class="num" href="#q29" aria-label="Ссылка на вопрос 29">29</a><span class="qt">Какие современные технологии используются в астрономии и астрофизике?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 29">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q29-ts" aria-controls="q29-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q29-tl" aria-controls="q29-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q29-s" aria-labelledby="q29-ts">
+  <ul class="thesis">
+<li><b>Телескопы во всех диапазонах:</b> оптические наземные с <b>адаптивной оптикой</b> и сегментированными зеркалами; космические — «Хаббл» (1990), «Джеймс Уэбб» (2021, ИК); рентгеновские — «Чандра», российско-германский «Спектр-РГ» (2019).</li>
+<li><b>Радиоастрономия и интерферометрия:</b> ALMA, FAST, «Радиоастрон»; Телескоп горизонта событий — первое изображение тени чёрной дыры (2019).</li>
+<li><b>Новые «окна» во Вселенную:</b> гравитационно-волновые детекторы LIGO/Virgo (первая регистрация 2015, Нобель 2017), нейтринные телескопы (IceCube, Baikal-GVD).</li>
+<li><b>Приёмники и методы:</b> ПЗС-матрицы, спектроскопия, поиск экзопланет методом транзитов (Kepler, TESS) и лучевых скоростей.</li>
+<li><b>Обработка данных:</b> суперкомпьютеры и моделирование, большие данные и машинное обучение, межпланетные зонды.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q29-d" aria-labelledby="q29-tl">
+<h4>1. Оптические и инфракрасные телескопы</h4>
+<ul>
+ <li><b>Наземные телескопы-гиганты</b> с зеркалами 8–10 м (Keck, VLT, Subaru, Gran Telescopio Canarias); <b>сегментированные зеркала</b> из многих шестиугольных частей.</li>
+ <li><b>Активная оптика</b> — компьютер поддерживает идеальную форму зеркала; <b>адаптивная оптика</b> — деформируемое зеркало сотни раз в секунду компенсирует дрожание атмосферы, ориентиром служит естественная или <b>лазерная искусственная звезда</b>.</li>
+ <li><b>Космические телескопы</b> — над атмосферой нет искажений: «Хаббл» (1990), «Джеймс Уэбб» (запущен 25 декабря 2021 г.), Gaia (точная карта более миллиарда звёзд), Euclid (тёмная материя и энергия).</li>
+</ul>
+<h4>2. Телескопы других диапазонов</h4>
+<ul>
+ <li><b>Рентгеновские и гамма-телескопы</b> (только в космосе): «Чандра», XMM-Newton, Fermi; российско-германская обсерватория <b>«Спектр-РГ»</b> (запущена в 2019 г., телескопы eROSITA и ART-XC) — обзор всего неба в рентгене.</li>
+ <li><b>Радиотелескопы</b>: FAST в Китае (500 м), ALMA в Чили (комплекс из десятков антенн), российский РАТАН-600.</li>
+ <li><b>Радиоинтерферометрия со сверхдлинными базами (РСДБ/VLBI)</b> — антенны в разных точках Земли работают как один телескоп размером с планету. Так <b>Телескоп горизонта событий</b> получил первое изображение тени чёрной дыры в галактике M87 (2019) и в центре нашей Галактики (2022). Российский космический радиотелескоп «Радиоастрон» (2011–2019) создавал интерферометр размером больше Земли.</li>
+</ul>
+<h4>3. Многоканальная (мультимессенджерная) астрономия</h4>
+<ul>
+ <li><b>Гравитационно-волновые детекторы</b> — лазерные интерферометры LIGO (США), Virgo (Италия), KAGRA (Япония). Первая регистрация гравитационных волн от слияния чёрных дыр — 14 сентября 2015 г., Нобелевская премия 2017 г. (Р. Вайсс, Б. Бэриш, К. Торн).</li>
+ <li><b>Нейтринные телескопы</b> — IceCube во льду Антарктиды, <b>Baikal-GVD</b> в озере Байкал.</li>
+ <li>Совместное наблюдение одного события в разных «каналах» (гравитационные волны + свет + нейтрино).</li>
+</ul>
+<h4>4. Приёмники и методы наблюдений</h4>
+<ul>
+ <li><b>ПЗС-матрицы (CCD)</b> — цифровые светоприёмники (Нобелевская премия 2009 г., У. Бойл и Дж. Смит), гигапиксельные камеры.</li>
+ <li><b>Спектроскопия</b> — состав, температура, скорость объектов; спектрографы высокой точности.</li>
+ <li><b>Поиск экзопланет</b>: метод транзитов (телескопы Kepler, TESS), лучевых скоростей, прямое наблюдение, гравитационное микролинзирование.</li>
+</ul>
+<h4>5. Вычисления и данные</h4>
+<ul>
+ <li><b>Суперкомпьютерное моделирование</b> — эволюция Вселенной, звёзд, галактик.</li>
+ <li><b>Большие данные и машинное обучение</b> — обзоры неба дают огромные объёмы данных; ИИ классифицирует галактики, ищет сверхновые и экзопланеты.</li>
+ <li><b>Гражданская наука</b> — добровольцы помогают классифицировать объекты (проект Galaxy Zoo).</li>
+</ul>
+<h4>6. Космические аппараты</h4>
+<p>Межпланетные станции и зонды (Voyager, марсоходы, New Horizons у Плутона), доставка образцов грунта с Луны и астероидов.</p>
+ </div>
+</article>
+
+<article class="q" id="q30" data-mode="short">
+ <h2><a class="num" href="#q30" aria-label="Ссылка на вопрос 30">30</a><span class="qt">В чем значение телескопов нового поколения для научных открытий?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 30">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q30-ts" aria-controls="q30-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q30-tl" aria-controls="q30-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q30-s" aria-labelledby="q30-ts">
+  <ul class="thesis">
+<li>Больше зеркало → <b>больше собираемого света</b> (видны более слабые и далёкие объекты) и <b>выше чёткость</b> (угловое разрешение).</li>
+<li><b>«Джеймс Уэбб»</b> (зеркало 6,5 м, работает в ИК у точки L2): самые ранние галактики, состав атмосфер экзопланет (CO₂ у WASP-39b, 2022), рождение звёзд.</li>
+<li>Строятся наземные гиганты: <b>ELT</b> (39 м, Чили), Гигантский Магелланов телескоп, TMT; обсерватория <b>им. Веры Рубин</b> — обзор всего неба; радиоинтерферометр <b>SKA</b>.</li>
+<li>Задачи: происхождение Вселенной, тёмная материя и тёмная энергия, прямые снимки экзопланет и поиск признаков жизни, чёрные дыры.</li>
+<li>Значение: проверка физических теорий, новые технологии (оптика, детекторы, обработка данных), международное сотрудничество.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q30-d" aria-labelledby="q30-tl">
+<p><b>Телескопы нового поколения</b> — инструменты с беспрецедентно большими зеркалами или антеннами, новыми детекторами, адаптивной оптикой, работающие в разных диапазонах, на Земле и в космосе.</p>
+<h4>Почему они важны</h4>
+<ul>
+ <li><b>Светосила.</b> Площадь зеркала растёт пропорционально квадрату диаметра: телескоп видит более <b>слабые и далёкие объекты</b>. А чем дальше объект, тем раньше в истории Вселенной мы его видим.</li>
+ <li><b>Угловое разрешение.</b> Больше диаметр — мельче детали (вместе с адаптивной оптикой).</li>
+ <li><b>Новые диапазоны.</b> Инфракрасный свет проходит сквозь пылевые облака и позволяет видеть очень далёкие галактики, свет которых из-за расширения Вселенной сместился в ИК-область (красное смещение).</li>
+ <li><b>Скорость обзора.</b> Широкоугольные телескопы снимают всё небо многократно — фиксируют изменения (вспышки, движущиеся астероиды).</li>
+</ul>
+<h4>Ключевые инструменты</h4>
+<ul>
+ <li><b>Космический телескоп «Джеймс Уэбб» (JWST)</b> — NASA, ESA и CSA, запущен 25.12.2021. Зеркало 6,5 м из 18 сегментов, работает в инфракрасном диапазоне у точки Лагранжа L2 (≈1,5 млн км от Земли). Результаты: обнаружены галактики, существовавшие всего через несколько сотен миллионов лет после Большого взрыва; впервые чётко зафиксирован углекислый газ в атмосфере экзопланеты WASP-39b (2022); детальные изображения областей звёздообразования.</li>
+ <li><b>Обсерватория им. Веры Рубин</b> (Чили) — первые снимки опубликованы в 2025 г.; оснащена крупнейшей цифровой камерой для астрономии (около 3,2 гигапикселя) и многократно снимает всё южное небо: астероиды, сверхновые, тёмная материя.</li>
+ <li><b>Чрезвычайно большие наземные телескопы</b> (в строительстве, ввод планируется на рубеже 2020–2030-х гг.): <b>ELT</b> Европейской южной обсерватории (зеркало 39 м, Чили), Гигантский Магелланов телескоп (≈25 м), Тридцатиметровый телескоп (TMT).</li>
+ <li><b>SKA</b> (Square Kilometre Array) — радиоинтерферометр в Австралии и ЮАР с общей собирающей площадью порядка квадратного километра.</li>
+ <li><b>Телескоп горизонта событий</b> — сеть радиотелескопов по всему миру, получившая изображения теней чёрных дыр.</li>
+</ul>
+<h4>Значение для науки</h4>
+<ul>
+ <li>Изучение <b>первых звёзд и галактик</b>, эпохи реионизации, происхождения и эволюции Вселенной.</li>
+ <li>Исследование <b>тёмной материи и тёмной энергии</b>.</li>
+ <li><b>Экзопланеты</b>: прямые изображения, анализ атмосфер, поиск <b>биомаркеров</b> (кислород, метан, вода) — шаг к ответу на вопрос о жизни во Вселенной.</li>
+ <li><b>Чёрные дыры</b> и проверка общей теории относительности в экстремальных условиях.</li>
+ <li><b>Безопасность Земли</b> — обнаружение потенциально опасных астероидов.</li>
+ <li><b>Технологический эффект</b> — развитие оптики, адаптивных систем, сенсоров, обработки больших данных; эти технологии затем используются в медицине (офтальмология), связи, промышленности.</li>
+ <li><b>Международное сотрудничество</b> — крупные проекты создаются консорциумами многих стран.</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q31" data-mode="short">
+ <h2><a class="num" href="#q31" aria-label="Ссылка на вопрос 31">31</a><span class="qt">Объясните основные принципы квантовой механики, применимые к квантовым компьютерам.</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 31">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q31-ts" aria-controls="q31-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q31-tl" aria-controls="q31-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q31-s" aria-labelledby="q31-ts">
+  <ul class="thesis">
+<li><b>Кубит</b> — квантовый бит: может находиться в <b>суперпозиции</b> 0 и 1 одновременно (α|0⟩ + β|1⟩); n кубитов описываются 2ⁿ числами-амплитудами.</li>
+<li><b>Измерение</b> «схлопывает» суперпозицию: результат 0 или 1 с вероятностями |α|² и |β|².</li>
+<li><b>Запутанность</b> — состояния кубитов связаны: измерение одного сразу определяет результат другого, как бы далеко они ни были.</li>
+<li><b>Интерференция</b> — алгоритм усиливает вероятность правильного ответа и гасит неправильные (алгоритмы Шора — разложение на множители, 1994; Гровера — поиск, 1996).</li>
+<li><b>Декогеренция</b> — потеря квантовых свойств из-за шума → нужны изоляция, глубокое охлаждение, коррекция ошибок; теорема о запрете клонирования.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q31-d" aria-labelledby="q31-tl">
+<p><b>Квантовый компьютер</b> — вычислительное устройство, использующее явления квантовой механики для обработки информации. Идею предложили Р. Фейнман (1981–1982) и Д. Дойч (1985).</p>
+<h4>1. Кубит и суперпозиция</h4>
+<p>Классический бит — либо 0, либо 1. <b>Кубит</b> может находиться в <b>суперпозиции</b>: |ψ⟩ = α|0⟩ + β|1⟩, где α и β — амплитуды вероятности, |α|² + |β|² = 1. Регистр из <b>n</b> кубитов описывается 2ⁿ амплитудами одновременно: 10 кубитов — 1024, 300 кубитов — больше, чем атомов в наблюдаемой Вселенной. Это источник потенциальной мощности квантовых вычислений.</p>
+<h4>2. Измерение</h4>
+<p>При измерении суперпозиция разрушается («коллапс волновой функции»): кубит принимает значение 0 с вероятностью |α|² или 1 с вероятностью |β|². Поэтому нельзя просто «прочитать» все 2ⁿ значений — алгоритм нужно строить хитро.</p>
+<h4>3. Квантовая запутанность</h4>
+<p>Два или более кубитов могут быть в <b>запутанном состоянии</b>: их нельзя описать по отдельности, результаты измерений строго коррелированы, независимо от расстояния. Эйнштейн называл это «жутким дальнодействием» (парадокс ЭПР, 1935). Запутанность — ресурс для квантовых алгоритмов, телепортации и квантовой связи. (Нобелевская премия по физике 2022 — А. Аспе, Дж. Клаузер, А. Цайлингер за эксперименты с запутанными фотонами.)</p>
+<h4>4. Интерференция</h4>
+<p>Амплитуды — как волны: могут складываться (усиливаться) или гасить друг друга. Квантовый алгоритм устроен так, чтобы амплитуды неправильных ответов взаимно погасились, а правильного — усилились. Тогда при измерении с высокой вероятностью получается верный результат.</p>
+<h4>5. Квантовые вентили и унитарная эволюция</h4>
+<p>Вычисление — последовательность <b>квантовых логических вентилей</b> (вентиль Адамара создаёт суперпозицию, CNOT — запутывает кубиты). Операции обратимы (описываются унитарными матрицами).</p>
+<h4>6. Декогеренция и ошибки</h4>
+<p><b>Декогеренция</b> — потеря квантового состояния из-за взаимодействия с окружением (тепло, излучение, вибрации). Поэтому кубиты изолируют и охлаждают (сверхпроводящие — до температур порядка сотых долей кельвина в криостатах), а также разрабатывают <b>квантовую коррекцию ошибок</b> — объединение многих физических кубитов в один «логический».</p>
+<h4>7. Теорема о запрете клонирования</h4>
+<p>Неизвестное квантовое состояние невозможно точно скопировать (Вуттерс, Зурек, Диекс, 1982). Это ограничение для вычислений, но основа безопасности квантовой связи.</p>
+<h4>Значение и реализация</h4>
+<ul>
+ <li><b>Алгоритм Шора</b> (1994) — быстрое разложение чисел на множители: угроза шифру RSA.</li>
+ <li><b>Алгоритм Гровера</b> (1996) — ускоренный поиск в неупорядоченной базе (квадратичное ускорение).</li>
+ <li>Задачи: моделирование молекул и материалов, оптимизация, криптография, машинное обучение.</li>
+ <li>Физические платформы: сверхпроводящие кубиты (IBM, Google), ионы в ловушках, нейтральные атомы, фотоны, спины в полупроводниках. В 2019 г. Google заявил о «квантовом превосходстве» процессора Sycamore на специальной задаче. В России работы ведутся в рамках дорожной карты «Квантовые вычисления» (Росатом, Российский квантовый центр, МГУ, ФИАН и др.).</li>
+</ul>
+ </div>
+</article>
+
+<article class="q" id="q32" data-mode="short">
+ <h2><a class="num" href="#q32" aria-label="Ссылка на вопрос 32">32</a><span class="qt">Как работают квантовые сенсоры и где они применяются?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 32">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q32-ts" aria-controls="q32-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q32-tl" aria-controls="q32-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q32-s" aria-labelledby="q32-ts">
+  <ul class="thesis">
+<li><b>Квантовый сенсор</b> использует квантовые состояния (суперпозиция, запутанность, дискретные уровни энергии атомов) — они крайне чувствительны к внешним полям, поэтому позволяют измерять сверхточно.</li>
+<li>Принцип: <b>подготовить</b> квантовое состояние → дать ему <b>взаимодействовать</b> с измеряемой величиной (поле, ускорение, время) → <b>считать</b> изменение (фазу, частоту) → получить значение.</li>
+<li>Виды: <b>атомные часы</b>, <b>квантовые магнитометры</b> (SQUID, оптические, NV-центры в алмазе), <b>атомные интерферометры</b> (гравиметры, акселерометры, гироскопы).</li>
+<li>Применение: спутниковая навигация (ГЛОНАСС/GPS) и синхронизация сетей, навигация без спутников, медицина (магнитоэнцефалография), геологоразведка, поиск подземных пустот.</li>
+<li>Детекторы гравитационных волн LIGO используют «сжатый» свет — квантовый способ снизить шум.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q32-d" aria-labelledby="q32-tl">
+<p><b>Квантовые сенсоры</b> — измерительные устройства, которые используют квантовые явления (суперпозицию, запутанность, дискретность энергетических уровней, интерференцию волн материи) для измерения физических величин с точностью, недоступной классическим приборам.</p>
+<p><b>Ключевая идея:</b> квантовые состояния очень хрупкие и легко меняются под действием внешней среды. Для квантового компьютера это проблема (декогеренция), а для сенсора — преимущество: даже ничтожное воздействие заметно меняет состояние.</p>
+<h4>Как работает (общая схема)</h4>
+<ol>
+ <li><b>Подготовка</b> — атомы, ионы, электроны или фотоны приводят в определённое квантовое состояние (часто охлаждают лазерами почти до абсолютного нуля и создают суперпозицию).</li>
+ <li><b>Взаимодействие</b> — система «чувствует» измеряемую величину: магнитное или гравитационное поле, ускорение, вращение, течение времени. У состояния меняется фаза или энергия.</li>
+ <li><b>Считывание</b> — изменение измеряют, обычно методом интерферометрии или по флуоресценции (свечению).</li>
+ <li><b>Расчёт</b> величины по изменению. Запутанность и «сжатые» состояния позволяют снизить шум ниже стандартного квантового предела.</li>
+</ol>
+<h4>Основные виды</h4>
+<ul>
+ <li><b>Атомные часы.</b> Эталон времени — частота перехода между уровнями энергии атома. С 1967 г. секунда определяется через частоту перехода в атоме цезия-133. Оптические атомные часы ещё точнее.<br><i>Применение:</i> спутниковые навигационные системы ГЛОНАСС, GPS, Galileo; синхронизация телекоммуникационных и энергетических сетей, бирж; фундаментальная физика.</li>
+ <li><b>Квантовые магнитометры.</b>
+  <ul>
+   <li><b>SQUID</b> — сверхпроводящие квантовые интерферометры;</li>
+   <li><b>оптически накачиваемые магнитометры</b> на парах щелочных металлов;</li>
+   <li><b>NV-центры в алмазе</b> — дефекты кристаллической решётки, работающие даже при комнатной температуре.</li>
+  </ul>
+  <i>Применение:</i> <b>магнитоэнцефалография</b> (регистрация магнитных полей мозга) и магнитокардиография, геологоразведка полезных ископаемых, поиск подводных объектов, исследование материалов.</li>
+ <li><b>Атомные интерферометры</b> — облако холодных атомов разделяется на две «волны», которые потом сводятся; интерференционная картина показывает ускорение или вращение.<br><i>Применение:</i> <b>квантовые гравиметры</b> (поиск полезных ископаемых, подземных пустот и коммуникаций, мониторинг вулканов, уровня грунтовых вод), <b>акселерометры и гироскопы</b> для <b>инерциальной навигации без спутников</b> — в подводных лодках, самолётах, при глушении GPS.</li>
+ <li><b>Квантовая оптика и визуализация</b> — однофотонные детекторы, квантовые лидары и экспериментальные «квантовые радары», микроскопия высокого разрешения.</li>
+ <li><b>Сжатый свет в LIGO</b> — детекторы гравитационных волн используют «сжатые» квантовые состояния света, чтобы уменьшить квантовый шум.</li>
+</ul>
+<h4>Проблемы</h4>
+<p>Сложность и стоимость установок, чувствительность к помехам, необходимость охлаждения и вакуума, задача сделать приборы компактными и пригодными для работы «в поле».</p>
+ </div>
+</article>
+
+<article class="q" id="q33" data-mode="short">
+ <h2><a class="num" href="#q33" aria-label="Ссылка на вопрос 33">33</a><span class="qt">Что такое квантовая телепортация информации и каковы её перспективы?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 33">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q33-ts" aria-controls="q33-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q33-tl" aria-controls="q33-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q33-s" aria-labelledby="q33-ts">
+  <ul class="thesis">
+<li><b>Квантовая телепортация</b> — передача <b>квантового состояния</b> (не вещества!) одной частицы другой, удалённой частице с помощью <b>запутанности</b> и обычного классического канала связи.</li>
+<li>Протокол предложили Ч. Беннет и соавторы (1993); первые опыты с фотонами — группы А. Цайлингера и Ф. Де Мартини (1997). В 2017 г. Китай телепортировал состояния фотонов с Земли на спутник «Мо-цзы» (≈1400 км).</li>
+<li>Схема: Алиса и Боб делят запутанную пару → Алиса делает совместное измерение (Белла) → передаёт 2 бита по обычной связи → Боб применяет одну из 4 операций и получает исходное состояние.</li>
+<li>Быстрее света не работает (нужен классический канал); оригинал разрушается (запрет клонирования).</li>
+<li>Перспективы: <b>квантовый интернет</b>, квантовые повторители, связь между квантовыми компьютерами, распределённые вычисления, защищённая связь. Проблемы: потери в оптоволокне, декогеренция, квантовая память.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q33-d" aria-labelledby="q33-tl">
+<p><b>Квантовая телепортация</b> — процесс передачи неизвестного <b>квантового состояния</b> от одной частицы (например, фотона) к другой, находящейся на расстоянии, с использованием <b>квантовой запутанности</b> и <b>классического канала связи</b>. Важно: переносится <b>не вещество и не энергия</b>, а информация о состоянии; частица в точке назначения становится точной «копией» исходной, а исходное состояние при этом разрушается.</p>
+<h4>История</h4>
+<ul>
+ <li>1993 — протокол предложили Ч. Беннет, Ж. Брассар, К. Крепо, Р. Йожа, А. Перес и У. Вуттерс.</li>
+ <li>1997 — первые экспериментальные подтверждения на фотонах: группа <b>Антона Цайлингера</b> (Инсбрук) и группа Франческо Де Мартини (Рим).</li>
+ <li>2012 — телепортация на 143 км между Канарскими островами.</li>
+ <li>2017 — китайский спутник <b>«Мо-цзы» (Micius)</b>: телепортация состояний фотонов с наземной станции на орбиту, расстояние до ≈1400 км.</li>
+ <li>2022 — Нобелевская премия по физике (А. Аспе, Дж. Клаузер, А. Цайлингер) за эксперименты с запутанными фотонами, заложившие основы квантовой информатики.</li>
+</ul>
+<h4>Как работает (протокол)</h4>
+<ol>
+ <li>Создаётся пара <b>запутанных частиц</b> (B и C). Одна (B) у отправителя — <b>Алисы</b>, другая (C) — у получателя — <b>Боба</b>.</li>
+ <li>У Алисы есть частица A с неизвестным состоянием, которое нужно передать.</li>
+ <li>Алиса проводит <b>совместное измерение</b> частиц A и B (измерение в базисе Белла). Получается один из 4 возможных результатов (2 классических бита). Состояние A при этом разрушается.</li>
+ <li>Алиса сообщает Бобу эти <b>2 бита по обычному каналу</b> (телефон, интернет).</li>
+ <li>Боб в зависимости от полученных битов применяет к частице C одну из четырёх простых операций — и C оказывается в исходном состоянии частицы A.</li>
+</ol>
+<h4>Важные ограничения</h4>
+<ul>
+ <li><b>Нет передачи быстрее света:</b> без классических битов Боб ничего не узнает, а они передаются не быстрее скорости света.</li>
+ <li><b>Нет копирования:</b> оригинальное состояние уничтожается (теорема о запрете клонирования).</li>
+ <li>Это не «телепортация людей» из фантастики.</li>
+</ul>
+<h4>Перспективы</h4>
+<ul>
+ <li><b>Квантовый интернет</b> — сеть, передающая кубиты между узлами; телепортация — базовая операция такой сети.</li>
+ <li><b>Квантовые повторители</b> — передача запутанности на большие расстояния «по цепочке» (обмен запутанностью), чтобы преодолеть потери в оптоволокне.</li>
+ <li><b>Распределённые квантовые вычисления</b> — объединение нескольких квантовых процессоров в один мощный компьютер.</li>
+ <li><b>Защищённая связь</b> и «слепые» облачные квантовые вычисления.</li>
+</ul>
+<p><b>Проблемы:</b> потери фотонов и декогеренция на больших расстояниях, необходимость надёжной <b>квантовой памяти</b>, низкая скорость передачи, сложное и дорогое оборудование.</p>
+ </div>
+</article>
+
+<article class="q" id="q34" data-mode="short">
+ <h2><a class="num" href="#q34" aria-label="Ссылка на вопрос 34">34</a><span class="qt">В чем состоит роль квантовых сетей в телекоммуникациях будущего?</span></h2>
+ <div class="tabs" role="tablist" aria-label="Вариант ответа на вопрос 34">
+  <button type="button" role="tab" class="tab" data-tab="short" id="q34-ts" aria-controls="q34-s" aria-selected="true">Кратко</button>
+  <button type="button" role="tab" class="tab" data-tab="long" id="q34-tl" aria-controls="q34-d" aria-selected="false" tabindex="-1">Подробно</button>
+ </div>
+ <div class="panel p-short" role="tabpanel" id="q34-s" aria-labelledby="q34-ts">
+  <ul class="thesis">
+<li><b>Квантовая сеть</b> — сеть, передающая квантовые состояния (фотоны-кубиты) и запутанность между узлами по оптоволокну или через спутники.</li>
+<li>Главное применение сейчас — <b>квантовое распределение ключей (КРК, QKD)</b>: протоколы BB84 (Беннет и Брассар, 1984), E91 (Экерт, 1991). Перехват физически невозможен незаметно — он вносит ошибки.</li>
+<li>Защищают связь от угрозы квантовых компьютеров (алгоритм Шора); альтернатива — постквантовая криптография (стандарты NIST, 2024).</li>
+<li>Примеры: в Китае — магистраль Пекин — Шанхай (≈2000 км) и спутник «Мо-цзы»; в России — магистральная квантовая сеть РЖД (участок Москва — Санкт-Петербург, 2021), в Европе — проект EuroQCI.</li>
+<li>Будущее — <b>квантовый интернет</b>: связь квантовых компьютеров, распределённые вычисления и сенсоры, точная синхронизация часов. Проблемы: дальность (потери в волокне), квантовые повторители, цена, стандарты.</li>
+  </ul>
+ </div>
+ <div class="panel p-long" role="tabpanel" id="q34-d" aria-labelledby="q34-tl">
+<p><b>Квантовая сеть</b> — система узлов (квантовых устройств), соединённых квантовыми каналами (оптоволокно, открытое пространство, спутниковая связь), по которым передаются квантовые состояния — обычно одиночные фотоны — и распределяется запутанность. Работает совместно с обычными (классическими) сетями.</p>
+<h4>1. Квантовое распределение ключей (КРК, QKD) — главное применение сегодня</h4>
+<ul>
+ <li>Две стороны с помощью одиночных фотонов вырабатывают <b>общий секретный ключ</b> для шифрования.</li>
+ <li>Протоколы: <b>BB84</b> (Ч. Беннет и Ж. Брассар, 1984), <b>E91</b> (А. Экерт, 1991, на основе запутанности).</li>
+ <li>Безопасность основана на <b>законах физики</b>, а не на сложности вычислений: любое измерение фотона злоумышленником неизбежно меняет его состояние (принцип неопределённости, запрет клонирования), и стороны замечают рост ошибок.</li>
+ <li>Это важно, потому что будущие квантовые компьютеры (алгоритм Шора) смогут взломать распространённые сегодня шифры (RSA, эллиптические кривые). Параллельно развивается <b>постквантовая криптография</b> — классические алгоритмы, устойчивые к квантовым атакам (первые стандарты NIST опубликованы в 2024 г.).</li>
+</ul>
+<h4>2. Реальные проекты</h4>
+<ul>
+ <li><b>Китай</b>: магистральная квантовая линия Пекин — Шанхай (около 2000 км, 2017) и спутник «Мо-цзы» (Micius); в 2017 г. — межконтинентальная видеосвязь Китай — Австрия с квантовыми ключами.</li>
+ <li><b>Россия</b>: магистральная квантовая сеть ОАО «РЖД» (первый участок Москва — Санкт-Петербург запущен в 2021 г.), разработки Российского квантового центра, МГУ, ИТМО, компании «QRate» и др.; дорожная карта «Квантовые коммуникации».</li>
+ <li><b>Европа</b> — инициатива <b>EuroQCI</b> (европейская квантовая коммуникационная инфраструктура).</li>
+</ul>
+<h4>3. Роль в телекоммуникациях будущего</h4>
+<ul>
+ <li><b>Защищённые каналы</b> для банков, госструктур, оборонных и энергетических объектов, медицинских данных, центров обработки данных.</li>
+ <li><b>Квантовый интернет</b> — соединение квантовых компьютеров через телепортацию состояний; <b>распределённые квантовые вычисления</b> и «слепые» облачные вычисления (сервер не видит данные клиента).</li>
+ <li><b>Сети квантовых сенсоров</b> и сверхточная <b>синхронизация атомных часов</b>.</li>
+ <li>Интеграция с существующей оптоволоконной инфраструктурой и спутниковыми системами.</li>
+</ul>
+<h4>4. Основные компоненты</h4>
+<p>Источники одиночных и запутанных фотонов, однофотонные детекторы, <b>квантовые повторители</b> и <b>квантовая память</b> (пока в разработке), на текущем этапе — «доверенные узлы», где ключ временно переходит в классическую форму.</p>
+<h4>5. Проблемы</h4>
+<p>Затухание фотонов в оптоволокне ограничивает прямую дальность примерно сотней километров (дальше нужны доверенные узлы или повторители), невысокая скорость генерации ключей, высокая стоимость оборудования, отсутствие единых стандартов, уязвимости реальных устройств (не теории, а «железа»).</p>
+ </div>
+</article>
+  <div class="empty" id="empty">Ничего не найдено. Попробуйте другое слово или номер вопроса.</div>
+ </main>
+</div>
+
+<footer class="foot">
+ <p>Шпаргалка для подготовки к зачёту. Сверяйте формулировки с лекциями преподавателя. Файл полностью автономный: его можно сохранить и открыть в любом браузере без интернета.</p>
+</footer>
+
+<button type="button" class="totop" id="totop" aria-label="Наверх">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var arts = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var tocItems = Array.prototype.slice.call(document.querySelectorAll('.toc li'));
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  };
+
+  /* ---- вкладки у каждого вопроса ---- */
+  function setMode(art, mode, focus){
+    art.setAttribute('data-mode', mode);
+    var tabs = art.querySelectorAll('.tab');
+    for (var i=0;i<tabs.length;i++){
+      var on = tabs[i].getAttribute('data-tab') === mode;
+      tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabs[i].tabIndex = on ? 0 : -1;
+      if (on && focus) tabs[i].focus();
+    }
+  }
+  arts.forEach(function(art){
+    art.querySelector('.tabs').addEventListener('click', function(e){
+      var b = e.target.closest('.tab'); if (!b) return;
+      setMode(art, b.getAttribute('data-tab'));
+    });
+    art.querySelector('.tabs').addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+        e.preventDefault();
+        setMode(art, art.getAttribute('data-mode') === 'short' ? 'long' : 'short', true);
+      }
+    });
+  });
+
+  /* ---- показать всё кратко / подробно ---- */
+  var allBtns = document.querySelectorAll('[data-all]');
+  function setAll(mode, save){
+    arts.forEach(function(a){ setMode(a, mode); });
+    for (var i=0;i<allBtns.length;i++) allBtns[i].setAttribute('aria-pressed', allBtns[i].getAttribute('data-all') === mode ? 'true' : 'false');
+    if (save) store.set('ost-mode', mode);
+  }
+  for (var i=0;i<allBtns.length;i++) allBtns[i].addEventListener('click', function(){ setAll(this.getAttribute('data-all'), true); });
+  if (store.get('ost-mode') === 'long') setAll('long');
+
+  /* ---- тема ---- */
+  var themeBtn = document.getElementById('theme'), themeT = document.getElementById('theme-t');
+  var names = {auto:'Авто', light:'Светлая', dark:'Тёмная'};
+  function curTheme(){ return root.getAttribute('data-theme') || 'auto'; }
+  function showTheme(){ var t = curTheme(); themeT.textContent = names[t]; themeBtn.setAttribute('aria-label','Тема оформления: ' + names[t].toLowerCase()); themeBtn.title = 'Тема: ' + names[t]; }
+  themeBtn.addEventListener('click', function(){
+    var order = ['auto','light','dark'], next = order[(order.indexOf(curTheme())+1)%3];
+    if (next === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', next);
+    store.set('ost-theme', next); showTheme();
+  });
+  showTheme();
+
+  /* ---- поиск ---- */
+  function norm(s){ return s.toLowerCase().replace(/ё/g,'е'); }
+  var index = arts.map(function(a){
+    return { el:a, n:a.id.slice(1), q:norm(a.querySelector('.qt').textContent), all:norm(a.textContent) };
+  });
+  var input = document.getElementById('q'), status = document.getElementById('status'), empty = document.getElementById('empty');
+  var timer;
+  function search(){
+    var v = norm(input.value.trim()), shown = 0;
+    var words = v.split(/\s+/).filter(Boolean);
+    index.forEach(function(it, k){
+      var ok;
+      if (!words.length) ok = true;
+      else if (/^\d+$/.test(v)) ok = it.n === v;
+      else ok = words.every(function(w){ return it.all.indexOf(w) !== -1; });
+      it.el.classList.toggle('hide', !ok);
+      tocItems[k].classList.toggle('hide', !ok);
+      if (ok) shown++;
+    });
+    empty.classList.toggle('on', shown === 0);
+    status.textContent = words.length ? ('Найдено вопросов: ' + shown + ' из ' + index.length) : '';
+  }
+  input.addEventListener('input', function(){ clearTimeout(timer); timer = setTimeout(search, 120); });
+  input.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ input.value=''; search(); } });
+  search();
+  window.addEventListener('pageshow', search);
+  window.addEventListener('hashchange', function(){ var t=document.getElementById(location.hash.slice(1)); if (t && t.classList.contains('hide')){ input.value=''; search(); t.scrollIntoView(); } });
+
+  /* ---- оглавление ---- */
+  var toc = document.getElementById('toc');
+  var wide = window.matchMedia('(min-width: 1100px)');
+  function syncToc(){ if (wide.matches) toc.open = true; }
+  syncToc();
+  if (wide.addEventListener) wide.addEventListener('change', syncToc);
+  toc.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if (!a) return;
+    if (!wide.matches) toc.open = false;
+  });
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          var k = arts.indexOf(en.target);
+          tocItems.forEach(function(li,j){ li.classList.toggle('cur', j === k); });
+        }
+      });
+    }, {rootMargin:'-30% 0px -60% 0px'});
+    arts.forEach(function(a){ io.observe(a); });
+  }
+
+  /* ---- наверх ---- */
+  var totop = document.getElementById('totop');
+  window.addEventListener('scroll', function(){ totop.classList.toggle('on', window.scrollY > 700); }, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo(0,0); });
+
+  /* ---- кнопка скачивания видна только на сайте ---- */
+  if (/^https?:$/.test(location.protocol)) document.getElementById('dl').classList.add('on');
+})();
+</script>
+</body>
+</html>
